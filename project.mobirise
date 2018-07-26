@@ -1,0 +1,874 @@
+{
+  "settings": {
+    "name": "Site-07-25_0929",
+    "currentPage": "index.html",
+    "theme": {
+      "name": "webamp",
+      "title": "WebAMP",
+      "styling": {
+        "primaryColor": "#ff4870",
+        "secondaryColor": "#ca4336",
+        "successColor": "#90929d",
+        "infoColor": "#292c3d",
+        "warningColor": "#fac769",
+        "dangerColor": "#b2ccd2",
+        "mainFont": "Didact Gothic",
+        "display1Font": "Raleway",
+        "display1Size": "5",
+        "display2Font": "Raleway",
+        "display2Size": "2.5",
+        "display5Font": "Raleway",
+        "display5Size": "1.5",
+        "display7Font": "Raleway",
+        "display7Size": "0.85",
+        "display4Font": "PT Serif",
+        "display4Size": 0.85
+      },
+      "additionalSetColors": [
+        "#ff4870",
+        "#90929d",
+        "#292c3d"
+      ]
+    },
+    "siteFonts": [
+      {
+        "css": "'Raleway', sans-serif",
+        "name": "Raleway",
+        "url": "https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+      },
+      {
+        "css": "'PT Serif', serif",
+        "name": "PT Serif",
+        "url": "https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i"
+      }
+    ],
+    "versionFirst": "4.7.5",
+    "uniqCompNum": 16,
+    "versionPublish": "4.7.5",
+    "path": "@PROJECT_PATH@",
+    "screenshot": "screenshot.png"
+  },
+  "pages": {
+    "index.html": {
+      "settings": {
+        "main": true,
+        "title": "Home",
+        "meta_descr": "",
+        "header_custom": "",
+        "footer_custom": "",
+        "html_before": ""
+      },
+      "components": [
+        {
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)",
+              "& when (@overlay)": {
+                ".mbr-overlay": {
+                  "background": "@overlayColor",
+                  "opacity": "@overlayOpacity"
+                }
+              }
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            }
+          },
+          "_name": "header1",
+          "_customHTML": "<section class=\"header1\" group=\"Headers\" mbr-class=\"{'mbr-fullscreen': fullScreen}\" plugins=\"amp-main, amp-vimeo, amp-youtube, amp-form, amp-mustache\">\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n    <header>Size</header>\n    <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\" checked>\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"10\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"10\" condition=\"fullScreen == false\">\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n    <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\" checked>\n    <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n    <input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\">\n    <select title=\"Align\" name=\"alignTitle\" condition=\"showTitle || showSubtitle || showText || showButtons\">\n        <option value=\"1\">Left</option>\n        <option value=\"2\" selected>Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    <header>Background</header>\n    <fieldset type=\"background\" name=\"bg\">\n        <input type=\"image\" title=\"Background Image\" value=\"@PROJECT_PATH@/assets/images/pexels-photo-230629-2000x1125.jpg\" selected>\n        <input type=\"color\" title=\"Background Color\" value=\"#FFA0A4\">\n    </fieldset>\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n    <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"overlay && bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\"></div>\n    <div mbr-class=\"{'container':!fullWidth,\n                     'container-fluid': fullWidth}\">\n        <div class=\"title-wrap mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 mbr-black mbr-px-4\" mbr-class=\"{'align-left': alignTitle==1,\n                        'align-center': alignTitle==2,\n                        'align-right': alignTitle==3}\" mbr-if=\"showTitle || showSubtitle || showText || showButtons\">\n            <div class=\"title-block mbr-col-sm-12 mbr-col-md-12 mbr-px-4\">\n                <p class=\"mbr-text mbr-fonts-style mbr-bold\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-section-btn, .mbr-text\" mbr-class=\"{'mbr-pb-2': showTitle}\">\n                    ADVENTURE &amp; TRAVELING\n                </p>\n                <h1 class=\"mbr-section-title mbr-fonts-style mbr-bold\" mbr-class=\"{'mbr-pb-2': showSubtitle}\" mbr-theme-style=\"display-1\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title, .mbr-section-btn\">FOLLOW FJORD</h1>\n                <h2 class=\"mbr-section-subtitle mbr-fonts-style mbr-regular\" mbr-theme-style=\"display-5\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle, .mbr-section-btn\">explore – experience – remember</h2>\n                <div mbr-buttons class=\"mbr-section-btn\" mbr-class=\"{'mbr-pt-4':showSubtitle||showTitle||showText}\" mbr-theme-style=\"display-7\" data-toolbar=\"-mbrBtnMove\" mbr-if=\"showButtons\">\n                    <a class=\"btn-primary btn\">\n                        Learn How\n                        <span class=\"fa btn-icon fa-long-arrow-right mbr-iconfont mbr-iconfont-btn\"></span>\n                    </a>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "qYNmivHDqA",
+          "_anchor": "header1-0",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [],
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)",
+              "& when (@overlay)": {
+                ".mbr-overlay": {
+                  "background": "@overlayColor",
+                  "opacity": "@overlayOpacity"
+                }
+              }
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".mbr-row > *": {
+              "@media (max-width: 992px)": {
+                "padding": "0"
+              }
+            },
+            "& when not (@blockDirection)": {
+              ".title-block": {
+                "margin": "auto",
+                "width": "100%"
+              },
+              ".title-wrap": {
+                "@media (max-width: 992px)": {
+                  "margin-bottom": "2rem"
+                }
+              }
+            },
+            ".line": {
+              "&:after": {
+                "content": "\"\"",
+                "display": "inline-block",
+                "width": "45px",
+                "max-width": "100%",
+                "border-top": "2px solid @primaryColor",
+                "vertical-align": "top"
+              },
+              "line-height": "2px"
+            },
+            "& when (@showTitle)": {
+              ".mbr-row": {
+                "margin-top": "40px",
+                "margin-bottom": "40px"
+              }
+            },
+            ".btn": {
+              "padding": "16px 40px",
+              "-webkit-border-radius": "100px",
+              "border-radius": "100px",
+              "border-width": "1px",
+              "&:hover,&:focus": {
+                "background-color": "transparent !important"
+              }
+            }
+          },
+          "_name": "header2",
+          "_customHTML": "<section class=\"header2\" group=\"Headers\" mbr-class=\"{'mbr-fullscreen': fullScreen}\" plugins=\"amp-main, amp-vimeo, amp-youtube, amp-form, amp-mustache\">\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n    <header>Size</header>\n    <input type=\"checkbox\" title=\"Row/Column\" name=\"blockDirection\">\n    <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"checkbox\" title=\"Reverse Content\" name=\"reverseContent\" condition=\"!blockDirection &amp;&amp; (showCardTitle || showCardSubtitle || showCardText || (showButtons &amp;&amp; !showTitle))\">\n    <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline=\"\" title=\"Left/Right\" name=\"columnWidth\" min=\"1\" max=\"5\" step=\"1\" value=\"3\" condition=\"!blockDirection\">\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Line Title\" name=\"showLineTitle\" condition=\"showTitle\" checked=\"\">    \n    <input type=\"checkbox\" title=\"Card Title\" name=\"showCardTitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Card Subtitle\" name=\"showCardSubtitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Card Text\" name=\"showCardText\" checked=\"\">\n    <input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\" checked=\"\">\n    <!--  -->\n    <header>Align</header>\n    <select title=\"Title\" name=\"alignTitle\" condition=\"showTitle\">\n        <option value=\"1\">Left</option>\n        <option value=\"2\" selected=\"\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>    \n    <select title=\"All Card\" name=\"alignCardTitle\" condition=\"blockDirection &amp;&amp; (showCardTitle || showCardSubtitle || showCardText || (showButtons &amp;&amp; !showTitle))\">\n        <option value=\"1\">Left</option>\n        <option value=\"2\" selected=\"\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    <select title=\"Text\" name=\"alignContent\" condition=\"!blockDirection &amp;&amp; (showCardTitle || showCardSubtitle || showCardText || (showButtons &amp;&amp; !showTitle))\">\n        <option value=\"1\" selected=\"\">Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    <header condition=\"blockDirection\">Content</header>\n    <input type=\"range\" inline=\"\" title=\"Content Width\" name=\"contentWidth\" min=\"1\" max=\"6\" step=\"1\" value=\"3\" condition=\"blockDirection\">\n    <header>Background</header>\n    <fieldset type=\"background\" name=\"bg\">\n        <input type=\"image\" title=\"Background Image\" value=\"@PROJECT_PATH@/assets/images/pexels-photo-456710-2000x1350.jpg\" selected=\"\">\n        <input type=\"color\" title=\"Background Color\" value=\"#cccccc\">\n    </fieldset>\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked=\"\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    <input type=\"range\" inline=\"\" title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay &amp;&amp; bg.type !== 'color'\"></div>\n    <div mbr-class=\"{'container':!fullWidth,\n                     'container-fluid': fullWidth}\">\n        <div class=\"title mbr-col-ld-12 mbr-col-md-12 mbr-col-sm-12 \" mbr-if=\"showTitle\" mbr-class=\"{'align-left':alignTitle == 1, 'align-center':alignTitle == 2, 'align-right':alignTitle == 3}\">\n            <h3 class=\"mbr-section-title mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-section-title\">FEATURED DESTINATION</h3>\n        <div class=\"line mbr-pt-3\" mbr-if=\"showLineTitle\"></div>\n        </div>\n        <div class=\"mbr-row mbr-black\" mbr-class=\"{'mbr-row-reverse': reverseContent}\">\n            <div class=\"title-wrap mbr-col-md-12 mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-3':columnWidth==1 &amp;&amp; !blockDirection,\n                             'mbr-col-lg-4':columnWidth==2 &amp;&amp; !blockDirection,\n                             'mbr-col-lg-6':columnWidth==3 &amp;&amp; !blockDirection,\n                             'mbr-col-lg-8':columnWidth==4 &amp;&amp; !blockDirection,\n                             'mbr-col-lg-9':columnWidth==5 &amp;&amp; !blockDirection,\n                             'mbr-col-lg-12':blockDirection,\n                             'align-left':(alignCardTitle==1 &amp;&amp; blockDirection) || (alignContent==1 &amp;&amp; !blockDirection),\n                             'align-center':(alignCardTitle==2 &amp;&amp; blockDirection) || (alignContent==2 &amp;&amp; !blockDirection),\n                             'align-right':(alignCardTitle==3 &amp;&amp; blockDirection) || (alignContent==3 &amp;&amp; !blockDirection),\n                             'mbr-pb-5': blockDirection,\n                             'mbr-flex': !blockDirection}\" mbr-if=\"showCardTitle || showCardSubtitle || showCardText || (!showTitle &amp;&amp; showButtons)\">\n                <div class=\"title-block mbr-col-sm-12 mbr-col-md-12\">\n                    <h1 class=\"card-title mbr-fonts-style mbr-bold\" mbr-class=\"{'mbr-pb-1': showCardSubtitle || showCardText || (showButtons &amp;&amp; !showTitle)}\" mbr-theme-style=\"display-2\" mbr-if=\"showCardTitle\" data-app-selector=\".card-title, .mbr-section-btn\">\n                    Header with Image\n                    </h1>\n                    <h2 class=\"mbr-section-subtitle mbr-fonts-style\" mbr-class=\"{'mbr-pb-1, mbr-pt-1':showCardText || (showButtons &amp;&amp; !showTitle)}\" mbr-theme-style=\"display-5\" mbr-if=\"showCardSubtitle\" data-app-selector=\".card-subtitle, .mbr-section-btn\">\n                    Sell your Product without Selling your Product\n                    </h2>\n                    <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showCardText\" data-app-selector=\".mbr-section-btn, .card-text\" mbr-class=\"{'mbr-pt-5': showCardSubtitle || showCardTitle}\">\n                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, maxime. Minus, mollitia dolorem corrupti expedita.\n                    </p>\n                    <div mbr-buttons=\"\" class=\"mbr-section-btn\" mbr-theme-style=\"display-7\" data-toolbar=\"-mbrBtnMove\" mbr-if=\"showButtons &amp;&amp; !showTitle\">\n                        <a class=\"btn-primary btn\">\n                            Learn How\n                            <span class=\"fa btn-icon fa-long-arrow-right mbr-iconfont mbr-iconfont-btn\"></span>\n                        </a>\n                    </div>\n                </div>\n            </div>\n            <div class=\"image-wrap mbr-col-md-12 mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-3':columnWidth==5 &amp;&amp; !blockDirection,\n                             'mbr-col-lg-4':columnWidth==4 &amp;&amp; !blockDirection,\n                             'mbr-col-lg-6':columnWidth==3 &amp;&amp; !blockDirection,\n                             'mbr-col-lg-8':columnWidth==2 &amp;&amp; !blockDirection,\n                             'mbr-col-lg-9':columnWidth==1 &amp;&amp; !blockDirection,\n                             'mbr-col-lg-12':blockDirection,\n                             'mbr-flex':!blockDirection, \n                             'mbr-mr-auto': alignTitle==1 &amp;&amp; showTitle &amp;&amp; !showCardTitle &amp;&amp; !showCardSubtitle &amp;&amp; !showCardText &amp;&amp; !blockDirection,\n                             'mbr-m-auto': alignTitle==2 &amp;&amp; showTitle &amp;&amp; !showCardTitle &amp;&amp; !showCardSubtitle &amp;&amp; !showCardText &amp;&amp; !blockDirection,\n                             'mbr-ml-auto': alignTitle==3 &amp;&amp; showTitle &amp;&amp; !showCardTitle &amp;&amp; !showCardSubtitle &amp;&amp; !showCardText &amp;&amp; !blockDirection}\">\n                <div class=\"image-block mbr-col-md-12 mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-3':contentWidth==1 &amp;&amp; blockDirection,\n                                 'mbr-col-lg-4':contentWidth==2 &amp;&amp; blockDirection,\n                                 'mbr-col-lg-6':contentWidth==3 &amp;&amp; blockDirection,\n                                 'mbr-col-lg-8':contentWidth==4 &amp;&amp; blockDirection,\n                                 'mbr-col-lg-9':contentWidth==5 &amp;&amp; blockDirection,\n                                 'mbr-mr-auto': (alignCardTitle==1 &amp;&amp; blockDirection &amp;&amp; (showCardTitle || showCardSubtitle || showCardText || (showButtons &amp;&amp; !showTitle))) || (alignTitle==2 &amp;&amp; showTitle &amp;&amp; blockDirection &amp;&amp; !showCardTitle &amp;&amp; !showCardSubtitle &amp;&amp; !showCardText),\n                                 'mbr-m-auto': (alignCardTitle==2 &amp;&amp; blockDirection &amp;&amp; (showCardTitle || showCardSubtitle || showCardText || (showButtons &amp;&amp; !showTitle))) || (alignTitle==2 &amp;&amp; showTitle &amp;&amp; blockDirection &amp;&amp; !showCardTitle &amp;&amp; !showCardSubtitle &amp;&amp; !showCardText),\n                                 'mbr-ml-auto': (alignCardTitle==3 &amp;&amp; blockDirection &amp;&amp; (showCardTitle || showCardSubtitle || showCardText || (showButtons &amp;&amp; !showTitle))) || (alignTitle==3 &amp;&amp; showTitle &amp;&amp; blockDirection &amp;&amp; !showCardTitle &amp;&amp; !showCardSubtitle &amp;&amp; !showCardText) }\">\n                    <amp-img src=\"@PROJECT_PATH@/assets/images/pexels-photo-368260-1012x569.jpg\" layout=\"responsive\" width=\"506.88927943760984\" height=\"285\" alt=\"Mobirise\" class=\"mobirise-loader\">\n                        <div placeholder=\"\">\n                            <div class=\"mobirise-spinner\">\n                                <em></em>\n                                <em></em>\n                                <em></em>\n                            </div>\n                        </div>\n                        <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/pexels-photo-368260-1012x569.jpg\" alt=\"Mobirise\" title=\"\">\n                    </amp-img>\n                </div>\n            </div>\n        </div>\n        <div mbr-buttons=\"\" class=\"mbr-section-btn\" mbr-class=\"{\n                             'align-left': alignTitle == 1 &amp;&amp; showTitle,\n                             'align-center': alignTitle == 2 &amp;&amp; showTitle,\n                             'align-right': alignTitle == 3 &amp;&amp; showTitle}\" mbr-theme-style=\"display-7\" data-toolbar=\"-mbrBtnMove\" mbr-if=\"showTitle &amp;&amp; showButtons\"><a class=\"btn btn-primary-outline\" data-app-placeholder=\"Type Text\" style=\"\n\">\n                EXPLORE MORE<span class=\"fa btn-icon fa-long-arrow-right mbr-iconfont mbr-iconfont-btn\"></span>\n            </a></div>\n    </div>\n</section>",
+          "_cid": "qYNFLZrcCN",
+          "_anchor": "header2-1",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [],
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)",
+              ".mbr-overlay": {
+                "background-color": "@overlayColor",
+                "opacity": "@overlayOpacity"
+              }
+            },
+            "amp-img,img": {
+              "height": "auto",
+              "width": "100%",
+              "object-fit": "contain"
+            },
+            ".gallery-row": {
+              "& when not (@flexDirection)": {
+                "padding-left": "0",
+                "padding-right": "0"
+              },
+              "@media (max-width: 991px)": {
+                "justify-content": "center"
+              }
+            },
+            ".gallery-item": {
+              "& when (@flexDirection)": {
+                "padding-left": "0",
+                "padding-right": "0"
+              },
+              ".gallery-item-wrap": {
+                "& when (@borderCard)": {
+                  "padding-bottom": "0.5rem",
+                  "border-bottom": "1px solid @borderColor"
+                },
+                "& when not (@flexDirection)": {
+                  ".card-box": {
+                    "padding-left": "1.5rem"
+                  },
+                  "@media (max-width: 767px)": {
+                    "flex-direction": "column",
+                    ".gallery-img-wrap": {
+                      "flex": "0 0"
+                    }
+                  }
+                }
+              }
+            },
+            ".gallery-wrap": {
+              "& when (@flexDirection)": {
+                "padding-left": "2rem",
+                "padding-right": "2rem",
+                "@media (max-width: 991px)": {
+                  "padding-left": "0",
+                  "padding-right": "0"
+                }
+              }
+            },
+            ".gallery-row, .gallery-item, .gallery-item .gallery-item-wrap .card-box": {
+              "@media (max-width: 767px)": {
+                "padding-left": "0rem",
+                "padding-right": "0rem"
+              }
+            },
+            ".gallery-item, .gallery-row": {
+              "&:nth-last-child(1)": {
+                "padding-bottom": "0"
+              }
+            },
+            ".gallery-img-wrap": {
+              "padding": "0",
+              "&:hover": {
+                "&:after": {
+                  "opacity": "@imgOverlayOpacity"
+                }
+              },
+              "&:after": {
+                "background": "@imgOverlayColor"
+              },
+              "span": {
+                "font-size": "~\"@{imgIconsSize}rem\"",
+                "width": "calc(1rem ~\"+ @{imgIconsSize}rem\")",
+                "height": "calc(1rem ~\"+ @{imgIconsSize}rem\")",
+                "background-color": "@imgIconsBgColor",
+                "color": "@imgIconsColor"
+              }
+            },
+            "& when not (@paddingCard)": {
+              ".gallery-item, .gallery-row": {
+                "padding": "0!important"
+              }
+            },
+            ".line": {
+              "&:after": {
+                "content": "\"\"",
+                "display": "inline-block",
+                "width": "45px",
+                "max-width": "100%",
+                "border-top": "2px solid @primaryColor",
+                "vertical-align": "top"
+              },
+              "line-height": "2px"
+            },
+            ".card-subtitle": {
+              "color": "#90929d"
+            },
+            ".card-box": {
+              "width": "100%"
+            },
+            ".md-pb": {
+              "@media (max-width: 991px)": {
+                "padding-bottom": "0.5rem"
+              }
+            }
+          },
+          "_name": "gallery1",
+          "_customHTML": "<section class=\"gallery1\" group=\"Features\" plugins=\"amp-main, amp-image-lightbox\">\n    <mbr-parameters>\n    <header>Size</header>\n    <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n    <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"checkbox\" title=\"Row/Column\" name=\"flexDirection\">\n    \n    <header>Title</header>\n    <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Show Line Title\" name=\"showLineTitle\" condition=\"showTitle\" checked=\"\">     \n    <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\">\n    <input type=\"checkbox\" title=\"Show Buttons\" name=\"showButtons\" checked=\"\">    \n    <select title=\"Align\" name=\"titleAlign\" condition=\"showTitle || showSubtitle || showButtons\">\n        <option value=\"1\">Left</option>\n        <option value=\"2\" selected=\"\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    \n    <header>Cards</header>\n    <input type=\"range\" inline=\"\" title=\"Containers Count\" name=\"containersCount\" min=\"1\" max=\"4\" step=\"1\" value=\"3\">\n    <input type=\"range\" inline=\"\" title=\"1st Container Items\" name=\"firstCount\" min=\"1\" max=\"4\" step=\"1\" value=\"3\">\n    <input type=\"range\" inline=\"\" title=\"2nd Container Items\" name=\"secondCount\" min=\"1\" max=\"4\" step=\"1\" value=\"3\" condition=\"containersCount > 1\">\n    <input type=\"range\" inline=\"\" title=\"3rd Container Items\" name=\"thirdCount\" min=\"1\" max=\"4\" step=\"1\" value=\"3\" condition=\"containersCount > 2\">\n    <input type=\"range\" inline=\"\" title=\"4th Container Items\" name=\"fourthCount\" min=\"1\" max=\"4\" step=\"1\" value=\"1\" condition=\"containersCount > 3\">\n    <input type=\"checkbox\" title=\"Show Card Title\" name=\"showCardTitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Show Card Subtitle\" name=\"showCardSubtitle\" checked=\"\">\n    <select title=\"Align\" name=\"cardsAlign\" condition=\"showCardTitle || showCardSubtitle\">\n        <option value=\"1\" selected=\"\">Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    <input type=\"checkbox\" title=\"Border Card\" name=\"borderCard\" checked=\"\">\n    <input type=\"color\" title=\"Border Color\" name=\"borderColor\" value=\"#000000\" condition=\"borderCard\">    \n    <input type=\"checkbox\" title=\"Padding Card\" name=\"paddingCard\" checked=\"\">    \n    <input type=\"color\" title=\"Image Overlay Color\" name=\"imgOverlayColor\" value=\"#000000\">\n    <input type=\"range\" inline=\"\" title=\"Image Overlay Opacity\" name=\"imgOverlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\">\n    <input type=\"range\" inline=\"\" title=\"Icons Size\" name=\"imgIconsSize\" min=\"1\" max=\"3\" step=\"0.1\" value=\"2\">\n    <input type=\"color\" title=\"Icons Color\" name=\"imgIconsColor\" value=\"#232323\">\n    <input type=\"color\" title=\"Icons BG Color\" name=\"imgIconsBgColor\" value=\"#ffffff\">\n    \n    <header>Background</header>\n    <fieldset type=\"background\" name=\"bg\">\n        <input type=\"color\" title=\"Background Color\" value=\"#ffffff\">\n        <input type=\"image\" title=\"Background Image\" value=\"@PROJECT_PATH@/assets/images/blog2-2000x1333.jpg\" selected=\"\">\n    </fieldset>\n    <!--  -->\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" checked=\"\" condition=\"bg.type !== 'color'\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#efefef\" condition=\"overlay &amp;&amp; bg.type == 'image'\">\n    <input type=\"range\" inline=\"\" title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.8\" condition=\"overlay &amp;&amp; bg.type == 'image'\">\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay &amp;&amp; bg.type !== 'color'\"></div>\n    <div mbr-class=\"{'container': !fullWidth,\n        'container-fluid': fullWidth}\">\n        <div class=\"title mbr-pb-4 mbr-px-4\" mbr-if=\"showTitle || showSubtitle\" mbr-class=\"{'align-center': titleAlign == 2,\n                         'align-right': titleAlign == 3}\">\n            <h3 class=\"mbr-section-title mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">BEST PLACES IN SCANDINAVIA</h3>\n            <div class=\"line mbr-pt-3\" mbr-if=\"showLineTitle &amp;&amp; showTitle\"></div>\n            <h4 class=\"mbr-section-subtitle mbr-fonts-style mbr-pt-2 mbr-regular\" mbr-theme-style=\"display-4\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">\n                Gallery Subtitle\n            </h4>\n        </div>\n        <div class=\"gallery-wrap mbr-flex flex-wrap mbr-jc-c mbr-px-4\">\n            <div class=\"mbr-col-md-12 mbr-col-sm-12 gallery-row row-first flex-wrap\" mbr-class=\"{'mbr-col-lg-3 mbr-px-4':containersCount==4 &amp;&amp; flexDirection,\n                            'mbr-col-lg-4 mbr-px-4':containersCount==3 &amp;&amp; flexDirection,\n                            'mbr-col-lg-6 mbr-px-4':containersCount==2 &amp;&amp; flexDirection,\n                            'mbr-col-lg-12 mbr-px-4':containersCount==1 &amp;&amp; flexDirection,\n                            'mbr-col-lg-12 mbr-pb-1 mbr-flex':!flexDirection,\n                            'md-pb':flexDirection}\" mbr-list=\"\" mbr-list-grow=\"firstCount\">\n                <div class=\"gallery-item mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-3':firstCount==4 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-4':firstCount==3 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-6':firstCount==2 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-12':(firstCount==1 &amp;&amp; !flexDirection) || flexDirection,\n                                'mbr-col-md-12 mbr-pb-1':flexDirection,\n                                'mbr-col-md-8 md-pb mbr-px-4':!flexDirection}\">\n                    <div class=\"gallery-item-wrap mbr-flex\" mbr-class=\"{'mbr-column': flexDirection}\">\n                    <div class=\"gallery-img-wrap mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-5 mbr-col-md-5': !flexDirection &amp;&amp; (showCardTitle || showCardSubtitle)}\">\n                        <amp-img on=\"tap:lightbox1\" role=\"button\" tabindex=\"0\" class=\"mobirise-loader image-without-link\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" layout=\"responsive\" height=\"79\" width=\"118.5\" alt=\"Mobirise\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                        <div class=\"icon-wrap\" on=\"tap:lightbox1\" role=\"button\" tabindex=\"0\">\n                            <span mbr-icon=\"\" class=\"amp-iconfont fa-search fa\"></span>\n                        </div>\n                    </div>\n                    <div class=\"card-box mbr-col-sm-12 mbr-m-auto\" mbr-if=\"(showCardTitle || showCardSubtitle)\" mbr-class=\"{'align-center': cardsAlign == 2,\n                                     'align-right': cardsAlign == 3,\n                                    'mbr-col-lg-7 mbr-col-md-7': !flexDirection,\n                                    'mbr-pt-2': flexDirection}\">\n                        <h3 class=\"card-title mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showCardTitle\" data-app-selector=\"card-title\">\n                            Gallery Title\n                        </h3>\n                        <h4 class=\"card-subtitle mbr-fonts-style mbr-pt-2\" mbr-theme-style=\"display-4\" mbr-if=\"showCardSubtitle\" data-app-selector=\".card-subtitle\">\n                            Gallery Subtitle\n                        </h4>\n                    </div>\n                    </div>\n                </div>\n            <div class=\"gallery-item mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-3':firstCount==4 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-4':firstCount==3 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-6':firstCount==2 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-12':(firstCount==1 &amp;&amp; !flexDirection) || flexDirection,\n                                'mbr-col-md-12 mbr-pb-1':flexDirection,\n                                'mbr-col-md-8 md-pb mbr-px-4':!flexDirection}\">\n                    <div class=\"gallery-item-wrap mbr-flex\" mbr-class=\"{'mbr-column': flexDirection}\">\n                    <div class=\"gallery-img-wrap mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-5 mbr-col-md-5': !flexDirection &amp;&amp; (showCardTitle || showCardSubtitle)}\">\n                        <amp-img on=\"tap:lightbox1\" role=\"button\" tabindex=\"0\" class=\"mobirise-loader image-without-link\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" layout=\"responsive\" height=\"79\" width=\"118.5\" alt=\"Mobirise\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                        <div class=\"icon-wrap\" on=\"tap:lightbox1\" role=\"button\" tabindex=\"0\">\n                            <span mbr-icon=\"\" class=\"amp-iconfont fa-search fa\"></span>\n                        </div>\n                    </div>\n                    <div class=\"card-box mbr-col-sm-12 mbr-m-auto\" mbr-if=\"(showCardTitle || showCardSubtitle)\" mbr-class=\"{'align-center': cardsAlign == 2,\n                                     'align-right': cardsAlign == 3,\n                                    'mbr-col-lg-7 mbr-col-md-7': !flexDirection,\n                                    'mbr-pt-2': flexDirection}\">\n                        <h3 class=\"card-title mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showCardTitle\" data-app-selector=\"card-title\">\n                            Gallery Title\n                        </h3>\n                        <h4 class=\"card-subtitle mbr-fonts-style mbr-pt-2\" mbr-theme-style=\"display-4\" mbr-if=\"showCardSubtitle\" data-app-selector=\".card-subtitle\">\n                            Gallery Subtitle\n                        </h4>\n                    </div>\n                    </div>\n                </div><div class=\"gallery-item mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-3':firstCount==4 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-4':firstCount==3 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-6':firstCount==2 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-12':(firstCount==1 &amp;&amp; !flexDirection) || flexDirection,\n                                'mbr-col-md-12 mbr-pb-1':flexDirection,\n                                'mbr-col-md-8 md-pb mbr-px-4':!flexDirection}\">\n                    <div class=\"gallery-item-wrap mbr-flex\" mbr-class=\"{'mbr-column': flexDirection}\">\n                    <div class=\"gallery-img-wrap mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-5 mbr-col-md-5': !flexDirection &amp;&amp; (showCardTitle || showCardSubtitle)}\">\n                        <amp-img on=\"tap:lightbox1\" role=\"button\" tabindex=\"0\" class=\"mobirise-loader image-without-link\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" layout=\"responsive\" height=\"79\" width=\"118.5\" alt=\"Mobirise\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                        <div class=\"icon-wrap\" on=\"tap:lightbox1\" role=\"button\" tabindex=\"0\">\n                            <span mbr-icon=\"\" class=\"amp-iconfont fa-search fa\"></span>\n                        </div>\n                    </div>\n                    <div class=\"card-box mbr-col-sm-12 mbr-m-auto\" mbr-if=\"(showCardTitle || showCardSubtitle)\" mbr-class=\"{'align-center': cardsAlign == 2,\n                                     'align-right': cardsAlign == 3,\n                                    'mbr-col-lg-7 mbr-col-md-7': !flexDirection,\n                                    'mbr-pt-2': flexDirection}\">\n                        <h3 class=\"card-title mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showCardTitle\" data-app-selector=\"card-title\">\n                            Gallery Title\n                        </h3>\n                        <h4 class=\"card-subtitle mbr-fonts-style mbr-pt-2\" mbr-theme-style=\"display-4\" mbr-if=\"showCardSubtitle\" data-app-selector=\".card-subtitle\">\n                            Gallery Subtitle\n                        </h4>\n                    </div>\n                    </div>\n                </div></div>\n            <div class=\"mbr-col-md-12 mbr-col-sm-12 gallery-row row-second flex-wrap\" mbr-class=\"{'mbr-col-lg-3 mbr-px-4':containersCount==4 &amp;&amp; flexDirection,\n                            'mbr-col-lg-4 mbr-px-4':containersCount==3 &amp;&amp; flexDirection,\n                            'mbr-col-lg-6 mbr-px-4':containersCount==2 &amp;&amp; flexDirection,\n                            'mbr-col-lg-12 mbr-pb-1 mbr-flex': !flexDirection,\n                            'md-pb':flexDirection}\" mbr-if=\"containersCount>1\" mbr-list=\"\" mbr-list-grow=\"secondCount\">\n                <div class=\"gallery-item mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-3':secondCount==4 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-4':secondCount==3 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-6':secondCount==2 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-12':(secondCount==1 &amp;&amp; !flexDirection) || flexDirection,\n                                'mbr-col-md-12 mbr-pb-1':flexDirection,\n                                'mbr-col-md-8 md-pb mbr-px-4':!flexDirection}\">\n                    <div class=\"gallery-item-wrap mbr-flex\" mbr-class=\"{'mbr-column': flexDirection}\">\n                    <div class=\"gallery-img-wrap mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-5 mbr-col-md-5': !flexDirection &amp;&amp; (showCardTitle || showCardSubtitle)}\">\n                        <amp-img on=\"tap:lightbox1\" role=\"button\" tabindex=\"0\" class=\"mobirise-loader image-without-link\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" layout=\"responsive\" height=\"79\" width=\"118.5\" alt=\"Mobirise\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                        <div class=\"icon-wrap\" on=\"tap:lightbox1\" role=\"button\" tabindex=\"0\">\n                            <span mbr-icon=\"\" class=\"amp-iconfont fa-search fa\"></span>\n                        </div>\n                    </div>\n                    <div class=\"card-box mbr-col-sm-12 mbr-m-auto\" mbr-if=\"(showCardTitle || showCardSubtitle)\" mbr-class=\"{'align-center': cardsAlign == 2,\n                                     'align-right': cardsAlign == 3,\n                                    'mbr-col-lg-7 mbr-col-md-7': !flexDirection,\n                                    'mbr-pt-2': flexDirection}\">\n                        <h3 class=\"card-title mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showCardTitle\" data-app-selector=\".card-title\">\n                            Gallery Title\n                        </h3>\n                        <h4 class=\"card-subtitle mbr-fonts-style mbr-pt-2\" mbr-theme-style=\"display-4\" mbr-if=\"showCardSubtitle\" data-app-selector=\".card-subtitle\">\n                            Gallery Subtitle\n                        </h4>\n                    </div>\n                    </div>\n                </div>\n            <div class=\"gallery-item mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-3':secondCount==4 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-4':secondCount==3 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-6':secondCount==2 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-12':(secondCount==1 &amp;&amp; !flexDirection) || flexDirection,\n                                'mbr-col-md-12 mbr-pb-1':flexDirection,\n                                'mbr-col-md-8 md-pb mbr-px-4':!flexDirection}\">\n                    <div class=\"gallery-item-wrap mbr-flex\" mbr-class=\"{'mbr-column': flexDirection}\">\n                    <div class=\"gallery-img-wrap mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-5 mbr-col-md-5': !flexDirection &amp;&amp; (showCardTitle || showCardSubtitle)}\">\n                        <amp-img on=\"tap:lightbox1\" role=\"button\" tabindex=\"0\" class=\"mobirise-loader image-without-link\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" layout=\"responsive\" height=\"79\" width=\"118.5\" alt=\"Mobirise\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                        <div class=\"icon-wrap\" on=\"tap:lightbox1\" role=\"button\" tabindex=\"0\">\n                            <span mbr-icon=\"\" class=\"amp-iconfont fa-search fa\"></span>\n                        </div>\n                    </div>\n                    <div class=\"card-box mbr-col-sm-12 mbr-m-auto\" mbr-if=\"(showCardTitle || showCardSubtitle)\" mbr-class=\"{'align-center': cardsAlign == 2,\n                                     'align-right': cardsAlign == 3,\n                                    'mbr-col-lg-7 mbr-col-md-7': !flexDirection,\n                                    'mbr-pt-2': flexDirection}\">\n                        <h3 class=\"card-title mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showCardTitle\" data-app-selector=\".card-title\">\n                            Gallery Title\n                        </h3>\n                        <h4 class=\"card-subtitle mbr-fonts-style mbr-pt-2\" mbr-theme-style=\"display-4\" mbr-if=\"showCardSubtitle\" data-app-selector=\".card-subtitle\">\n                            Gallery Subtitle\n                        </h4>\n                    </div>\n                    </div>\n                </div><div class=\"gallery-item mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-3':secondCount==4 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-4':secondCount==3 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-6':secondCount==2 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-12':(secondCount==1 &amp;&amp; !flexDirection) || flexDirection,\n                                'mbr-col-md-12 mbr-pb-1':flexDirection,\n                                'mbr-col-md-8 md-pb mbr-px-4':!flexDirection}\">\n                    <div class=\"gallery-item-wrap mbr-flex\" mbr-class=\"{'mbr-column': flexDirection}\">\n                    <div class=\"gallery-img-wrap mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-5 mbr-col-md-5': !flexDirection &amp;&amp; (showCardTitle || showCardSubtitle)}\">\n                        <amp-img on=\"tap:lightbox1\" role=\"button\" tabindex=\"0\" class=\"mobirise-loader image-without-link\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" layout=\"responsive\" height=\"79\" width=\"118.5\" alt=\"Mobirise\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                        <div class=\"icon-wrap\" on=\"tap:lightbox1\" role=\"button\" tabindex=\"0\">\n                            <span mbr-icon=\"\" class=\"amp-iconfont fa-search fa\"></span>\n                        </div>\n                    </div>\n                    <div class=\"card-box mbr-col-sm-12 mbr-m-auto\" mbr-if=\"(showCardTitle || showCardSubtitle)\" mbr-class=\"{'align-center': cardsAlign == 2,\n                                     'align-right': cardsAlign == 3,\n                                    'mbr-col-lg-7 mbr-col-md-7': !flexDirection,\n                                    'mbr-pt-2': flexDirection}\">\n                        <h3 class=\"card-title mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showCardTitle\" data-app-selector=\".card-title\">\n                            Gallery Title\n                        </h3>\n                        <h4 class=\"card-subtitle mbr-fonts-style mbr-pt-2\" mbr-theme-style=\"display-4\" mbr-if=\"showCardSubtitle\" data-app-selector=\".card-subtitle\">\n                            Gallery Subtitle\n                        </h4>\n                    </div>\n                    </div>\n                </div></div>\n            <div class=\"mbr-col-md-12 mbr-col-sm-12 gallery-row row-third flex-wrap\" mbr-class=\"{'mbr-col-lg-3 mbr-px-4':containersCount==4 &amp;&amp; flexDirection,\n                            'mbr-col-lg-4 mbr-px-4':containersCount==3 &amp;&amp; flexDirection,\n                            'mbr-col-lg-12 mbr-pb-1 mbr-flex':!flexDirection,\n                            'md-pb':flexDirection}\" mbr-if=\"containersCount>2\" mbr-list=\"\" mbr-list-grow=\"thirdCount\">\n                <div class=\"gallery-item mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-3':thirdCount==4 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-4':thirdCount==3 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-6':thirdCount==2 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-12':(thirdCount==1 &amp;&amp; !flexDirection) || flexDirection,\n                                'mbr-col-md-12 mbr-pb-1':flexDirection,\n                                'mbr-col-md-8 md-pb mbr-px-4':!flexDirection}\">\n                    <div class=\"gallery-item-wrap mbr-flex\" mbr-class=\"{'mbr-column': flexDirection}\">\n                    <div class=\"gallery-img-wrap mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-5 mbr-col-md-5': !flexDirection &amp;&amp; (showCardTitle || showCardSubtitle)}\">\n                        <amp-img on=\"tap:lightbox1\" role=\"button\" tabindex=\"0\" class=\"mobirise-loader image-without-link\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" layout=\"responsive\" height=\"79\" width=\"118.5\" alt=\"Mobirise\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                        <div class=\"icon-wrap\" on=\"tap:lightbox1\" role=\"button\" tabindex=\"0\">\n                            <span mbr-icon=\"\" class=\"amp-iconfont fa-search fa\"></span>\n                        </div>\n                    </div>\n                    <div class=\"card-box mbr-col-sm-12 mbr-m-auto\" mbr-if=\"(showCardTitle || showCardSubtitle)\" mbr-class=\"{'align-center': cardsAlign == 2,\n                                     'align-right': cardsAlign == 3,\n                                    'mbr-col-lg-7 mbr-col-md-7': !flexDirection,\n                                    'mbr-pt-2': flexDirection}\">\n                        <h3 class=\"card-title mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showCardTitle\" data-app-selector=\".card-title\">\n                            Gallery Title\n                        </h3>\n                        <h4 class=\"card-subtitle mbr-fonts-style mbr-pt-2\" mbr-theme-style=\"display-4\" mbr-if=\"showCardSubtitle\" data-app-selector=\".card-subtitle\">\n                            Gallery Subtitle\n                        </h4>\n                    </div>\n                    </div>\n                </div>\n            <div class=\"gallery-item mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-3':thirdCount==4 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-4':thirdCount==3 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-6':thirdCount==2 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-12':(thirdCount==1 &amp;&amp; !flexDirection) || flexDirection,\n                                'mbr-col-md-12 mbr-pb-1':flexDirection,\n                                'mbr-col-md-8 md-pb mbr-px-4':!flexDirection}\">\n                    <div class=\"gallery-item-wrap mbr-flex\" mbr-class=\"{'mbr-column': flexDirection}\">\n                    <div class=\"gallery-img-wrap mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-5 mbr-col-md-5': !flexDirection &amp;&amp; (showCardTitle || showCardSubtitle)}\">\n                        <amp-img on=\"tap:lightbox1\" role=\"button\" tabindex=\"0\" class=\"mobirise-loader image-without-link\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" layout=\"responsive\" height=\"79\" width=\"118.5\" alt=\"Mobirise\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                        <div class=\"icon-wrap\" on=\"tap:lightbox1\" role=\"button\" tabindex=\"0\">\n                            <span mbr-icon=\"\" class=\"amp-iconfont fa-search fa\"></span>\n                        </div>\n                    </div>\n                    <div class=\"card-box mbr-col-sm-12 mbr-m-auto\" mbr-if=\"(showCardTitle || showCardSubtitle)\" mbr-class=\"{'align-center': cardsAlign == 2,\n                                     'align-right': cardsAlign == 3,\n                                    'mbr-col-lg-7 mbr-col-md-7': !flexDirection,\n                                    'mbr-pt-2': flexDirection}\">\n                        <h3 class=\"card-title mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showCardTitle\" data-app-selector=\".card-title\">\n                            Gallery Title\n                        </h3>\n                        <h4 class=\"card-subtitle mbr-fonts-style mbr-pt-2\" mbr-theme-style=\"display-4\" mbr-if=\"showCardSubtitle\" data-app-selector=\".card-subtitle\">\n                            Gallery Subtitle\n                        </h4>\n                    </div>\n                    </div>\n                </div><div class=\"gallery-item mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-3':thirdCount==4 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-4':thirdCount==3 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-6':thirdCount==2 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-12':(thirdCount==1 &amp;&amp; !flexDirection) || flexDirection,\n                                'mbr-col-md-12 mbr-pb-1':flexDirection,\n                                'mbr-col-md-8 md-pb mbr-px-4':!flexDirection}\">\n                    <div class=\"gallery-item-wrap mbr-flex\" mbr-class=\"{'mbr-column': flexDirection}\">\n                    <div class=\"gallery-img-wrap mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-5 mbr-col-md-5': !flexDirection &amp;&amp; (showCardTitle || showCardSubtitle)}\">\n                        <amp-img on=\"tap:lightbox1\" role=\"button\" tabindex=\"0\" class=\"mobirise-loader image-without-link\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" layout=\"responsive\" height=\"79\" width=\"118.5\" alt=\"Mobirise\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                        <div class=\"icon-wrap\" on=\"tap:lightbox1\" role=\"button\" tabindex=\"0\">\n                            <span mbr-icon=\"\" class=\"amp-iconfont fa-search fa\"></span>\n                        </div>\n                    </div>\n                    <div class=\"card-box mbr-col-sm-12 mbr-m-auto\" mbr-if=\"(showCardTitle || showCardSubtitle)\" mbr-class=\"{'align-center': cardsAlign == 2,\n                                     'align-right': cardsAlign == 3,\n                                    'mbr-col-lg-7 mbr-col-md-7': !flexDirection,\n                                    'mbr-pt-2': flexDirection}\">\n                        <h3 class=\"card-title mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showCardTitle\" data-app-selector=\".card-title\">\n                            Gallery Title\n                        </h3>\n                        <h4 class=\"card-subtitle mbr-fonts-style mbr-pt-2\" mbr-theme-style=\"display-4\" mbr-if=\"showCardSubtitle\" data-app-selector=\".card-subtitle\">\n                            Gallery Subtitle\n                        </h4>\n                    </div>\n                    </div>\n                </div></div>\n            <div class=\"mbr-col-md-12 mbr-col-sm-12 gallery-row row-fourth flex-wrap\" mbr-class=\"{'mbr-col-lg-3 mbr-px-4':containersCount==4 &amp;&amp; flexDirection,\n                            'mbr-col-lg-12 mbr-flex':!flexDirection}\" mbr-if=\"containersCount==4\" mbr-list=\"\" mbr-list-grow=\"fourthCount\">\n                <div class=\"gallery-item mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-3':fourthCount==4 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-4':fourthCount==3 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-6':fourthCount==2 &amp;&amp; !flexDirection,\n                                'mbr-col-lg-12':(fourthCount==1 &amp;&amp; !flexDirection) || flexDirection,\n                                'mbr-col-md-12 mbr-pb-1':flexDirection,\n                                'mbr-col-md-8 md-pb mbr-px-4':!flexDirection}\">\n                    <div class=\"gallery-item-wrap mbr-flex\" mbr-class=\"{'mbr-column': flexDirection}\">\n                    <div class=\"gallery-img-wrap mbr-col-sm-12\" mbr-class=\"{'mbr-col-lg-5 mbr-col-md-5': !flexDirection &amp;&amp; (showCardTitle || showCardSubtitle)}\">\n                        <amp-img on=\"tap:lightbox1\" role=\"button\" tabindex=\"0\" class=\"mobirise-loader image-without-link\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" layout=\"responsive\" height=\"131\" width=\"196.5\" alt=\"Mobirise\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                        <div class=\"icon-wrap\" on=\"tap:lightbox1\" role=\"button\" tabindex=\"0\">\n                            <span mbr-icon=\"\" class=\"amp-iconfont fa-search fa\"></span>\n                        </div>\n                    </div>\n                    <div class=\"card-box mbr-col-sm-12 mbr-m-auto\" mbr-if=\"(showCardTitle || showCardSubtitle)\" mbr-class=\"{'align-center': cardsAlign == 2,\n                                     'align-right': cardsAlign == 3,\n                                    'mbr-col-lg-7 mbr-col-md-7': !flexDirection,\n                                    'mbr-pt-2': flexDirection}\">\n                        <h3 class=\"card-title mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showCardTitle\" data-app-selector=\".card-title\">\n                            Gallery Title\n                        </h3>\n                        <h4 class=\"card-subtitle mbr-fonts-style mbr-pt-2\" mbr-theme-style=\"display-4\" mbr-if=\"showCardSubtitle\" data-app-selector=\".card-subtitle\">\n                            Gallery Subtitle\n                        </h4>\n                    </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"card-btn mbr-section-btn mbr-pt-5 mbr-px-4\" mbr-buttons=\"\" data-toolbar=\"-mbrBtnMove\" mbr-theme-style=\"display-7\" mbr-if=\"showButtons\" mbr-class=\"{'align-center': titleAlign == 2,\n                         'align-right': titleAlign == 3}\">\n            <a class=\"btn btn-primary\" href=\"https://mobirise.com\">\n                Read More\n            </a>\n        </div>\n    </div>\n    <amp-image-lightbox id=\"lightbox1\" layout=\"nodisplay\">\n        <a class=\"control\" data-close-button-aria-label=\"Close\">\n            <span class=\"close\"></span>\n        </a>\n    </amp-image-lightbox>\n</section>",
+          "_cid": "qYOmttX4OF",
+          "_anchor": "gallery1-3",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [],
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)",
+              ".mbr-overlay": {
+                "background-color": "@overlayColor",
+                "opacity": "@overlayOpacity"
+              }
+            },
+            ".card-wrapper": {
+              "& when not (@transparentBg), (@showBorders)": {
+                "box-shadow": "2px 15px 50px rgba(41, 44, 61, 0.1)",
+                "-webkit-box-shadow": "2px 15px 50px rgba(41, 44, 61, 0.1)",
+                "transition": "box-shadow 0.1s",
+                "-webkit-transition": "box-shadow 0.1s",
+                "-o-transition": "box-shadow 0.1s",
+                "-moz-transition": "box-shadow 0.1s",
+                "&:hover": {
+                  "box-shadow": "2px 21px 50px rgba(41, 44, 61, 0.15)",
+                  "-webkit-box-shadow": "2px 15px 50px rgba(41, 44, 61, 0.15)"
+                }
+              },
+              "& when (@showBorders)": {
+                "border": "1px solid @bordersColor",
+                "& when (@transparentBg) and not (@flexDirection)": {
+                  "border": "none",
+                  "position": "relative",
+                  "&, &:hover": {
+                    "box-shadow": "none",
+                    "-webkit-box-shadow": "none"
+                  },
+                  ".card-box": {
+                    "padding": "0"
+                  },
+                  "&:after": {
+                    "content": "\"\"",
+                    "position": "absolute",
+                    "bottom": "-1.5rem",
+                    "width": "100%",
+                    "border-bottom": "1px solid @bordersColor",
+                    "@media (max-width: 767px)": {
+                      "bottom": "-1rem"
+                    }
+                  }
+                }
+              },
+              "& when not (@transparentBg)": {
+                "background": "@cardBg"
+              },
+              "@media (max-width: 767px)": {
+                "flex-wrap": "wrap"
+              }
+            },
+            ".card-box": {
+              "width": "100%"
+            },
+            "& when (@checkImages) and not (@flexDirection)": {
+              ".card-img": {
+                "padding": "0",
+                "@media (max-width: 991px)": {
+                  "width": "100%",
+                  "margin-bottom": "2rem"
+                },
+                "& when not (@chessStyle)": {
+                  "@media (min-width: 992px)": {
+                    "& when not (@reverseContent)": {
+                      "margin-right": "2rem"
+                    },
+                    "& when (@reverseContent)": {
+                      "margin-left": "2rem"
+                    }
+                  }
+                }
+              },
+              "& when (@chessStyle)": {
+                "@media (min-width: 992px)": {
+                  ".mbr-row .card": {
+                    "& when not (@reverseContent)": {
+                      "&:nth-child(odd) .card-img": {
+                        "margin-left": "2rem"
+                      },
+                      "&:nth-child(even) .card-img": {
+                        "margin-right": "2rem"
+                      }
+                    },
+                    "& when (@reverseContent)": {
+                      "&:nth-child(odd) .card-img": {
+                        "margin-right": "2rem"
+                      },
+                      "&:nth-child(even) .card-img": {
+                        "margin-left": "2rem"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            ".line": {
+              "&:after": {
+                "content": "\"\"",
+                "display": "inline-block",
+                "width": "45px",
+                "max-width": "100%",
+                "border-top": "2px solid @primaryColor",
+                "vertical-align": "top"
+              },
+              "line-height": "2px"
+            }
+          },
+          "_name": "features3",
+          "_customHTML": "<section class=\"features3\" group=\"Features\" plugins=\"amp-main\">\n    <mbr-parameters>\n    <header>Size</header>\n    <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n    <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"checkbox\" title=\"Row/Column\" name=\"flexDirection\">\n    <!-- -->\n    <input type=\"checkbox\" title=\"Chess Style\" name=\"chessStyle\" condition=\"checkImages &amp;&amp; !flexDirection\" checked=\"\">\n    <header>Title</header>\n    <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Show Line Title\" name=\"showLineTitle\" condition=\"showTitle\" checked=\"\">    \n    <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\">\n    <input type=\"checkbox\" title=\"Show Buttons\" name=\"showButtons\">      \n    <select title=\"Align\" name=\"titleAlign\" condition=\"showTitle || showSubtitle || showButtons\">\n        <option value=\"1\">Left</option>\n        <option value=\"2\" selected=\"\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    <header>Cards</header>\n    <input type=\"range\" inline=\"\" title=\"Count\" name=\"cardsCount\" min=\"1\" max=\"4\" step=\"1\" value=\"4\" condition=\"showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons || checkImages\">\n    <select title=\"Align\" name=\"cardsAlign\" condition=\"showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons || checkImages\">\n        <option value=\"1\">Left</option>\n        <option value=\"2\" selected=\"\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    <!-- -->   \n    <input type=\"checkbox\" title=\"Show Title\" name=\"showCardsTitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showCardsSubtitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Show Text\" name=\"showCardsText\" checked=\"\">\n    <input type=\"checkbox\" title=\"Show Buttons\" name=\"showCardsButtons\" checked=\"\">\n    <!--  -->\n    <input type=\"checkbox\" title=\"Borders\" name=\"showBorders\" condition=\"showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons || checkImages\">\n    <input type=\"color\" title=\"Color\" name=\"bordersColor\" value=\"#cccccc\" condition=\"showBorders &amp;&amp; (showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons || checkImages)\">\n    <input type=\"checkbox\" title=\"Transparent BG\" name=\"transparentBg\" condition=\"showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons || checkImages\">\n    <input type=\"color\" title=\"Color\" name=\"cardBg\" value=\"#ffffff\" condition=\"!transparentBg &amp;&amp; (showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons || checkImages)\">\n    <!--  -->\n    <input type=\"checkbox\" title=\"Images\" name=\"checkImages\" checked=\"\">\n    <input type=\"range\" inline=\"\" title=\"Image Width\" name=\"imgWidth\" min=\"1\" max=\"5\" step=\"1\" value=\"3\" condition=\"checkImages &amp;&amp; !flexDirection\">\n    <input type=\"checkbox\" title=\"Reverse Content\" name=\"reverseContent\" condition=\"checkImages &amp;&amp; !flexDirection\">\n    <!--  -->\n    <header>Background</header>\n    <fieldset type=\"background\" name=\"bg\">\n        <input type=\"color\" title=\"Background Color\" value=\"#ffffff\">\n        <input type=\"image\" title=\"Background Image\" value=\"@PROJECT_PATH@/assets/images/accessories8-2000x1125.jpg\" selected=\"\">\n    </fieldset>\n    <!--  -->\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" checked=\"\" condition=\"bg.type !== 'color'\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#efefef\" condition=\"overlay &amp;&amp; bg.type == 'image'\">\n    <input type=\"range\" inline=\"\" title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"overlay &amp;&amp; bg.type == 'image'\">\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay &amp;&amp; bg.type !== 'color'\"></div>\n    <div mbr-class=\"{'container':!fullWidth,\n                     'container-fluid':fullWidth}\">\n        <div class=\"title mbr-pb-4 mbr-px-4\" mbr-if=\"showTitle || showSubtitle\" mbr-class=\"{'align-center': titleAlign == 2,\n                         'align-right': titleAlign == 3,\n                         'mbr-pb-4': showTitle||showSubtitle}\">\n            <h3 class=\"mbr-section-title mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n                Features with Image\n            </h3>\n            <div class=\"line mbr-pt-3\" mbr-if=\"showLineTitle &amp;&amp; showTitle\"></div>\n            <h4 class=\"mbr-section-subtitle mbr-fonts-style mbr-pt-2 mbr-regular\" mbr-theme-style=\"display-4\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">\n                Features with Image Subtitle\n            </h4>\n        </div>\n        <div class=\"mbr-row mbr-px-2\" mbr-class=\"{'mbr-jc-c': cardsCount <= 3,\n                         'mbr-column': !flexDirection}\" mbr-if=\"showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons || checkImages\">\n            <div class=\"card mbr-col-sm-12\" mbr-class=\"{'mbr-px-4': !flexDirection, \n                             'mbr-col-md-12 mbr-px-4': flexDirection &amp;&amp; cardsCount == 1,\n                             'mbr-col-md-6 mbr-col-lg-6 mbr-px-4': flexDirection &amp;&amp; cardsCount == 2,\n                             'mbr-col-md-8 mbr-col-lg-4 mbr-px-2': flexDirection &amp;&amp; cardsCount == 3,\n                             'mbr-col-md-6 mbr-col-lg-3 mbr-px-2': flexDirection &amp;&amp; cardsCount == 4,\n                             'md-pb': (flexDirection &amp;&amp; cardsCount > 2) || (!flexDirection &amp;&amp; cardsCount > 1),\n                             'lg-pb': !flexDirection &amp;&amp; cardsCount > 1,\n                             'last-child': cardsCount == 1}\">\n                <div class=\"card-wrapper\" mbr-class=\"{'mbr-flex': !flexDirection,\n                                 'mbr-column': checkImages &amp;&amp; flexDirection,\n                                 'mbr-row-reverse': checkImages &amp;&amp; !flexDirection &amp;&amp; ((!chessStyle &amp;&amp; reverseContent)||(chessStyle &amp;&amp; !reverseContent))}\">\n                    <div class=\"card-img mbr-flex\" mbr-if=\"checkImages\" mbr-class=\"{'mbr-pb-2': flexDirection &amp;&amp; !showBorders &amp;&amp; transparentBg,\n                                     'mbr-col-md-3 mbr-col-lg-3': imgWidth == 1 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-4 mbr-col-lg-4': imgWidth == 2 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-6 mbr-col-lg-6': imgWidth == 3 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-8 mbr-col-lg-8': imgWidth == 4 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-9 mbr-col-lg-9': imgWidth == 5 &amp;&amp; !flexDirection}\">\n                        <amp-img src=\"@PROJECT_PATH@/assets/images/01.jpg\" layout=\"responsive\" width=\"522\" height=\"348\" alt=\"Mobirise\" class=\"mobirise-loader\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                    </div>\n                    <div class=\"card-box mbr-m-auto\" mbr-if=\"(showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons)\" mbr-class=\"{'align-center': cardsAlign == 2,\n                                     'align-right': cardsAlign == 3,\n                                    'mbr-p-4': showBorders || !transparentBg}\">\n                        <h3 class=\"card-title mbr-pb-2 mbr-semibold mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showCardsTitle\" data-app-selector=\".card-title, .card-btn, .card-img\">\n                            Best Masters\n                        </h3>\n                        <h4 class=\"card-subtitle mbr-fonts-style mbr-regular\" mbr-theme-style=\"display-4\" mbr-if=\"showCardsSubtitle\" data-app-selector=\".card-subtitle, .card-btn, .card-img\">\n                            Lorem ipsum dolor sit amet\n                        </h4>\n                        <p class=\"card-text mbr-fonts-style mbr-pt-3 mbr-regular\" mbr-theme-style=\"display-7\" mbr-if=\"showCardsText\" data-app-selector=\".card-text, .card-btn, .card-img\">\n                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada tempus magna, id bibendum\n                            lacus.\n                        </p>\n                        <div class=\"card-btn mbr-section-btn mbr-pt-3\" mbr-buttons=\"\" data-toolbar=\"-mbrBtnMove\" mbr-theme-style=\"display-7\" mbr-if=\"showCardsButtons\">\n                            <a class=\"btn btn-primary\" href=\"https://mobirise.com\">\n                                Read More\n                            </a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"card mbr-col-sm-12\" mbr-class=\"{'mbr-px-4': !flexDirection, \n                             'mbr-col-md-6 mbr-col-lg-6 mbr-px-4': flexDirection &amp;&amp; cardsCount == 2,\n                             'mbr-col-md-8 mbr-col-lg-4 mbr-px-2': flexDirection &amp;&amp; cardsCount == 3,\n                             'mbr-col-md-6 mbr-col-lg-3 mbr-px-2': flexDirection &amp;&amp; cardsCount == 4,\n                             'md-pb': (flexDirection &amp;&amp; cardsCount > 2) || (!flexDirection &amp;&amp; cardsCount > 2),\n                             'lg-pb': !flexDirection &amp;&amp; cardsCount > 2,\n                             'last-child': cardsCount == 2}\" mbr-if=\"cardsCount > 1\">\n                <div class=\"card-wrapper\" mbr-class=\"{'mbr-flex': !flexDirection,\n                                 'mbr-column': checkImages &amp;&amp; flexDirection,\n                                 'mbr-row-reverse': checkImages &amp;&amp; !flexDirection &amp;&amp; reverseContent}\">\n                    <div class=\"card-img mbr-flex\" mbr-if=\"checkImages\" mbr-class=\"{'mbr-pb-2': flexDirection &amp;&amp; !showBorders &amp;&amp; transparentBg,\n                                     'mbr-col-md-3 mbr-col-lg-3': imgWidth == 1 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-4 mbr-col-lg-4': imgWidth == 2 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-6 mbr-col-lg-6': imgWidth == 3 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-8 mbr-col-lg-8': imgWidth == 4 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-9 mbr-col-lg-9': imgWidth == 5 &amp;&amp; !flexDirection}\">\n                        <amp-img src=\"@PROJECT_PATH@/assets/images/02.jpg\" layout=\"responsive\" width=\"522\" height=\"348\" alt=\"Mobirise\" class=\"mobirise-loader\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/02.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                    </div>\n                    <div class=\"card-box mbr-m-auto\" mbr-if=\"(showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons)\" mbr-class=\"{'align-center': cardsAlign == 2,\n                                     'align-right': cardsAlign == 3,\n                                    'mbr-p-4': showBorders || !transparentBg}\">\n                        <h3 class=\"card-title mbr-pb-2 mbr-semibold mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showCardsTitle\" data-app-selector=\".card-title, .card-btn, .card-img\">\n                            Best Masters\n                        </h3>\n                        <h4 class=\"card-subtitle mbr-fonts-style mbr-regular\" mbr-theme-style=\"display-4\" mbr-if=\"showCardsSubtitle\" data-app-selector=\".card-subtitle, .card-btn, .card-img\">\n                            Lorem ipsum dolor sit amet\n                        </h4>\n                        <p class=\"card-text mbr-fonts-style mbr-pt-3 mbr-regular\" mbr-theme-style=\"display-7\" mbr-if=\"showCardsText\" data-app-selector=\".card-text, .card-btn, .card-img\">\n                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada tempus magna, id bibendum\n                            lacus.\n                        </p>\n                        <div class=\"card-btn mbr-section-btn mbr-pt-3\" mbr-buttons=\"\" data-toolbar=\"-mbrBtnMove\" mbr-theme-style=\"display-7\" mbr-if=\"showCardsButtons\">\n                            <a class=\"btn btn-primary\" href=\"https://mobirise.com\">\n                                Read More\n                            </a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"card mbr-col-sm-12\" mbr-class=\"{'mbr-px-4': !flexDirection, \n                             'mbr-col-md-8 mbr-col-lg-4 mbr-px-2': flexDirection &amp;&amp; cardsCount == 3,\n                             'mbr-col-md-6 mbr-col-lg-3 mbr-px-2': flexDirection &amp;&amp; cardsCount == 4,\n                             'md-pb': !flexDirection &amp;&amp; cardsCount > 3,\n                             'lg-pb': !flexDirection &amp;&amp; cardsCount > 3,\n                             'last-child': cardsCount == 3}\" mbr-if=\"cardsCount > 2\">\n                <div class=\"card-wrapper\" mbr-class=\"{'mbr-flex': !flexDirection,\n                                 'mbr-column': checkImages &amp;&amp; flexDirection,\n                                 'mbr-row-reverse': checkImages &amp;&amp; !flexDirection &amp;&amp; ((!chessStyle &amp;&amp; reverseContent)||(chessStyle &amp;&amp; !reverseContent))}\">\n                    <div class=\"card-img mbr-flex\" mbr-if=\"checkImages\" mbr-class=\"{'mbr-pb-2': flexDirection &amp;&amp; !showBorders &amp;&amp; transparentBg,\n                                     'mbr-col-md-3 mbr-col-lg-3': imgWidth == 1 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-4 mbr-col-lg-4': imgWidth == 2 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-6 mbr-col-lg-6': imgWidth == 3 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-8 mbr-col-lg-8': imgWidth == 4 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-9 mbr-col-lg-9': imgWidth == 5 &amp;&amp; !flexDirection}\">\n                        <amp-img src=\"@PROJECT_PATH@/assets/images/03.jpg\" layout=\"responsive\" width=\"522\" height=\"348\" alt=\"Mobirise\" class=\"mobirise-loader\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/03.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                    </div>\n                    <div class=\"card-box mbr-m-auto\" mbr-if=\"(showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons)\" mbr-class=\"{'align-center': cardsAlign == 2,\n                                     'align-right': cardsAlign == 3,\n                                    'mbr-p-4': showBorders || !transparentBg}\">\n                        <h3 class=\"card-title mbr-pb-2 mbr-semibold mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showCardsTitle\" data-app-selector=\".card-title, .card-btn, .card-img\">\n                            Best Masters\n                        </h3>\n                        <h4 class=\"card-subtitle mbr-fonts-style mbr-regular\" mbr-theme-style=\"display-4\" mbr-if=\"showCardsSubtitle\" data-app-selector=\".card-subtitle, .card-btn, .card-img\">\n                            Lorem ipsum dolor sit amet\n                        </h4>\n                        <p class=\"card-text mbr-fonts-style mbr-pt-3 mbr-regular\" mbr-theme-style=\"display-7\" mbr-if=\"showCardsText\" data-app-selector=\".card-text, .card-btn, .card-img\">\n                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada tempus magna, id bibendum\n                            lacus.\n                        </p>\n                        <div class=\"card-btn mbr-section-btn mbr-pt-3\" mbr-buttons=\"\" data-toolbar=\"-mbrBtnMove\" mbr-theme-style=\"display-7\" mbr-if=\"showCardsButtons\">\n                            <a class=\"btn btn-primary\" href=\"https://mobirise.com\">\n                                Read More\n                            </a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"card mbr-col-sm-12\" mbr-class=\"{'mbr-col-md-6 mbr-col-lg-3 mbr-px-2': flexDirection,\n                             'mbr-px-4': !flexDirection, \n                             'last-child': cardsCount == 4}\" mbr-if=\"cardsCount > 3\">\n                <div class=\"card-wrapper\" mbr-class=\"{'mbr-flex': !flexDirection,\n                                 'mbr-column': checkImages &amp;&amp; flexDirection,\n                                 'mbr-row-reverse': checkImages &amp;&amp; !flexDirection  &amp;&amp; reverseContent}\">\n                    <div class=\"card-img mbr-flex\" mbr-if=\"checkImages\" mbr-class=\"{'mbr-pb-2': flexDirection &amp;&amp; !showBorders &amp;&amp; transparentBg,\n                                     'mbr-col-md-3 mbr-col-lg-3': imgWidth == 1 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-4 mbr-col-lg-4': imgWidth == 2 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-6 mbr-col-lg-6': imgWidth == 3 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-8 mbr-col-lg-8': imgWidth == 4 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-9 mbr-col-lg-9': imgWidth == 5 &amp;&amp; !flexDirection}\">\n                        <amp-img src=\"@PROJECT_PATH@/assets/images/04.jpg\" layout=\"responsive\" width=\"522\" height=\"348\" alt=\"Mobirise\" class=\"mobirise-loader\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/04.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                    </div>\n                    <div class=\"card-box mbr-m-auto\" mbr-if=\"(showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons)\" mbr-class=\"{'align-center': cardsAlign == 2,\n                                     'align-right': cardsAlign == 3,\n                                    'mbr-p-4': showBorders || !transparentBg}\">\n                        <h3 class=\"card-title mbr-pb-2 mbr-semibold mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showCardsTitle\" data-app-selector=\".card-title, .card-btn, .card-img\">\n                            Best Masters\n                        </h3>\n                        <h4 class=\"card-subtitle mbr-fonts-style mbr-regular\" mbr-theme-style=\"display-4\" mbr-if=\"showCardsSubtitle\" data-app-selector=\".card-subtitle, .card-btn, .card-img\">\n                            Lorem ipsum dolor sit amet\n                        </h4>\n                        <p class=\"card-text mbr-fonts-style mbr-pt-3 mbr-regular\" mbr-theme-style=\"display-7\" mbr-if=\"showCardsText\" data-app-selector=\".card-text, .card-btn, .card-img\">\n                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada tempus magna, id bibendum\n                            lacus.\n                        </p>\n                        <div class=\"card-btn mbr-section-btn mbr-pt-3\" mbr-buttons=\"\" data-toolbar=\"-mbrBtnMove\" mbr-theme-style=\"display-7\" mbr-if=\"showCardsButtons\">\n                            <a class=\"btn btn-primary\" href=\"https://mobirise.com\">\n                                Read More\n                            </a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"card-btn mbr-section-btn mbr-pt-5 mbr-px-4\" mbr-buttons=\"\" data-toolbar=\"-mbrBtnMove\" mbr-theme-style=\"display-7\" mbr-if=\"showButtons\" mbr-class=\"{'align-center': titleAlign == 2,\n                         'align-right': titleAlign == 3}\">\n            <a class=\"btn btn-primary\" href=\"https://mobirise.com\">\n                Read More\n            </a>\n        </div>\n    </div>\n</section>",
+          "_cid": "qYPbzopRbA",
+          "_anchor": "features3-8",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [],
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)",
+              ".mbr-overlay": {
+                "background-color": "@overlayColor",
+                "opacity": "@overlayOpacity"
+              }
+            },
+            ".card-wrapper": {
+              "& when not (@transparentBg), (@showBorders)": {
+                "box-shadow": "2px 21px 50px rgba(41, 44, 61, 0.1)",
+                "-webkit-box-shadow": "2px 21px 50px rgba(41, 44, 61, 0.1)",
+                "transition": "box-shadow 0.1s",
+                "-webkit-transition": "box-shadow 0.1s",
+                "-o-transition": "box-shadow 0.1s",
+                "-moz-transition": "box-shadow 0.1s",
+                "&:hover": {
+                  "box-shadow": "2px 21px 50px rgba(41, 44, 61, 0.15)",
+                  "-webkit-box-shadow": "2px 21px 50px rgba(41, 44, 61, 0.15)"
+                }
+              },
+              "& when not (@transparentBg) and not (@showBorders)": {
+                "box-shadow": "none",
+                "&:hover": {
+                  "background": "@cardBg"
+                }
+              },
+              "& when (@showBorders)": {
+                "border": "1px solid @bordersColor",
+                "& when (@transparentBg) and not (@flexDirection)": {
+                  "border": "none",
+                  "position": "relative",
+                  "&, &:hover": {
+                    "box-shadow": "none",
+                    "-webkit-box-shadow": "none"
+                  },
+                  ".card-box": {
+                    "padding": "0"
+                  },
+                  "&:after": {
+                    "content": "\"\"",
+                    "position": "absolute",
+                    "bottom": "-1.5rem",
+                    "width": "100%",
+                    "border-bottom": "1px solid @bordersColor",
+                    "@media (max-width: 767px)": {
+                      "bottom": "-1rem"
+                    }
+                  }
+                }
+              },
+              "@media (max-width: 767px)": {
+                "flex-wrap": "wrap"
+              }
+            },
+            ".card-box": {
+              "width": "100%"
+            },
+            "& when (@checkImages) and not (@flexDirection)": {
+              ".card-img": {
+                "padding": "0",
+                "@media (max-width: 991px)": {
+                  "width": "100%",
+                  "margin-bottom": "2rem"
+                },
+                "@media (min-width: 992px)": {
+                  "& when not (@reverseContent)": {
+                    "margin-right": "2rem"
+                  },
+                  "& when (@reverseContent)": {
+                    "margin-left": "2rem"
+                  }
+                }
+              }
+            },
+            ".line": {
+              "&:after": {
+                "content": "\"\"",
+                "display": "inline-block",
+                "width": "45px",
+                "max-width": "100%",
+                "border-top": "2px solid @primaryColor",
+                "vertical-align": "top"
+              },
+              "line-height": "2px"
+            },
+            ".md-pb": {
+              "@media (max-width: 991px)": {
+                "padding-bottom": "1rem"
+              }
+            },
+            ".lg-pb": {
+              "@media (min-width: 992px)": {
+                "padding-bottom": "1rem"
+              }
+            }
+          },
+          "_name": "features3",
+          "_customHTML": "<section class=\"features3\" group=\"Features\" plugins=\"amp-main\">\n    <mbr-parameters>\n    <header>Size</header>\n    <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n    <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"checkbox\" title=\"Row/Column\" name=\"flexDirection\">\n    <!-- -->\n    <header>Title</header>\n    <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Show Line Title\" name=\"showLineTitle\" condition=\"showTitle\" checked=\"\">    \n    <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\">\n    <input type=\"checkbox\" title=\"Show Buttons\" name=\"showButtons\">      \n    <select title=\"Align\" name=\"titleAlign\" condition=\"showTitle || showSubtitle || showButtons\">\n        <option value=\"1\">Left</option>\n        <option value=\"2\" selected=\"\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    <header>Cards</header>\n    <input type=\"range\" inline=\"\" title=\"Count\" name=\"cardsCount\" min=\"1\" max=\"4\" step=\"1\" value=\"4\" condition=\"showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons || checkImages\">\n    <select title=\"Align\" name=\"cardsAlign\" condition=\"showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons || checkImages\">\n        <option value=\"1\">Left</option>\n        <option value=\"2\" selected=\"\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    <!-- -->   \n    <input type=\"checkbox\" title=\"Show Title\" name=\"showCardsTitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showCardsSubtitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Show Text\" name=\"showCardsText\" checked=\"\">\n    <input type=\"checkbox\" title=\"Show Buttons\" name=\"showCardsButtons\">\n    <!--  -->\n    <input type=\"checkbox\" title=\"Borders\" name=\"showBorders\" condition=\"showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons || checkImages\">\n    <input type=\"color\" title=\"Color\" name=\"bordersColor\" value=\"#cccccc\" condition=\"showBorders &amp;&amp; (showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons || checkImages)\">\n    <input type=\"checkbox\" title=\"Transparent BG\" name=\"transparentBg\" condition=\"showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons || checkImages\">\n    <input type=\"color\" title=\"Color\" name=\"cardBg\" value=\"#ffffff\" condition=\"!transparentBg &amp;&amp; (showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons || checkImages)\">\n    <!--  -->\n    <input type=\"checkbox\" title=\"Images\" name=\"checkImages\" checked=\"\">\n    <input type=\"range\" inline=\"\" title=\"Image Width\" name=\"imgWidth\" min=\"1\" max=\"5\" step=\"1\" value=\"3\" condition=\"checkImages &amp;&amp; !flexDirection\">\n    <input type=\"checkbox\" title=\"Reverse Content\" name=\"reverseContent\" condition=\"checkImages &amp;&amp; !flexDirection\">\n    <!--  -->\n    <header>Background</header>\n    <fieldset type=\"background\" name=\"bg\">\n        <input type=\"color\" title=\"Background Color\" value=\"#ffffff\">\n        <input type=\"image\" title=\"Background Image\" value=\"@PROJECT_PATH@/assets/images/pexels-photo-368260-2000x1125.jpg\" selected=\"\">\n    </fieldset>\n    <!--  -->\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" checked=\"\" condition=\"bg.type !== 'color'\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#efefef\" condition=\"overlay &amp;&amp; bg.type == 'image'\">\n    <input type=\"range\" inline=\"\" title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"overlay &amp;&amp; bg.type == 'image'\">\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay &amp;&amp; bg.type !== 'color'\"></div>\n    <div mbr-class=\"{'container':!fullWidth,\n                     'container-fluid':fullWidth}\">\n        <div class=\"title mbr-pb-4 mbr-px-4\" mbr-if=\"showTitle || showSubtitle\" mbr-class=\"{'align-center': titleAlign == 2,\n                         'align-right': titleAlign == 3,\n                         'mbr-pb-4': showTitle||showSubtitle}\">\n            <h3 class=\"mbr-section-title mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n                Features with Image\n            </h3>\n            <div class=\"line mbr-pt-3\" mbr-if=\"showLineTitle &amp;&amp; showTitle\"></div>\n            <h4 class=\"mbr-section-subtitle mbr-fonts-style mbr-pt-2 mbr-regular\" mbr-theme-style=\"display-4\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">\n                Features with Image Subtitle\n            </h4>\n        </div>\n        <div class=\"mbr-row mbr-px-2\" mbr-class=\"{'mbr-jc-c': cardsCount <= 3}\" mbr-if=\"showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons || checkImages\">\n            <div class=\"card mbr-col-sm-12\" mbr-class=\"{'mbr-px-1 ': !flexDirection,\n                             'mbr-col-md-12': !flexDirection &amp;&amp; cardsCount == 1,\n                             'mbr-col-md-12 mbr-col-lg-6': !flexDirection &amp;&amp; cardsCount >= 2,                      \n                             'mbr-col-md-12 mbr-px-4': flexDirection &amp;&amp; cardsCount == 1,\n                             'mbr-col-md-6 mbr-col-lg-6 mbr-px-4': flexDirection &amp;&amp; cardsCount == 2,\n                             'mbr-col-md-8 mbr-col-lg-4 mbr-px-2': flexDirection &amp;&amp; cardsCount == 3,\n                             'mbr-col-md-6 mbr-col-lg-3 mbr-px-2': flexDirection &amp;&amp; cardsCount == 4,\n                             'md-pb': (flexDirection &amp;&amp; cardsCount > 2) || (!flexDirection &amp;&amp; cardsCount > 1),\n                             'lg-pb': !flexDirection &amp;&amp; cardsCount > 2,\n                             'last-child': cardsCount == 1}\">\n                <div class=\"card-wrapper\" mbr-class=\"{'mbr-flex': !flexDirection,\n                                 'mbr-column': checkImages &amp;&amp; flexDirection,\n                                 'mbr-p-4': (showBorders || !transparentBg) &amp;&amp; !flexDirection,                    \n                                 'mbr-row-reverse': checkImages &amp;&amp; !flexDirection  &amp;&amp; reverseContent}\">\n                    <div class=\"card-img mbr-flex\" mbr-if=\"checkImages\" mbr-class=\"{'mbr-pb-2': flexDirection &amp;&amp; !showBorders &amp;&amp; transparentBg,\n                                     'mbr-col-md-3 mbr-col-lg-3': imgWidth == 1 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-4 mbr-col-lg-4': imgWidth == 2 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-6 mbr-col-lg-6': imgWidth == 3 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-8 mbr-col-lg-8': imgWidth == 4 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-9 mbr-col-lg-9': imgWidth == 5 &amp;&amp; !flexDirection}\">\n                        <amp-img src=\"@PROJECT_PATH@/assets/images/01.jpg\" layout=\"responsive\" width=\"237\" height=\"158\" alt=\"Mobirise\" class=\"mobirise-loader\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/01.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                    </div>\n                    <div class=\"card-box mbr-m-auto\" mbr-if=\"(showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons)\" mbr-class=\"{'align-center': cardsAlign == 2,\n                                     'align-right': cardsAlign == 3,\n                                    'mbr-p-4': (showBorders || !transparentBg) &amp;&amp; flexDirection}\">\n                        <h4 class=\"card-subtitle mbr-fonts-style mbr-regular\" mbr-theme-style=\"display-4\" mbr-if=\"showCardsSubtitle\" data-app-selector=\".card-subtitle, .card-btn, .card-img\">\n                            Lorem ipsum dolor sit amet\n                        </h4>\n                        <h3 class=\"card-title mbr-pt-2 mbr-semibold mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showCardsTitle\" data-app-selector=\".card-title, .card-btn, .card-img\">\n                            Best Masters\n                        </h3>\n                        <p class=\"card-text mbr-fonts-style mbr-pt-3 mbr-regular\" mbr-theme-style=\"display-7\" mbr-if=\"showCardsText\" data-app-selector=\".card-text, .card-btn, .card-img\">\n                            Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>\n                        <div class=\"card-btn mbr-section-btn mbr-pt-3\" mbr-buttons=\"\" data-toolbar=\"-mbrBtnMove\" mbr-theme-style=\"display-7\" mbr-if=\"showCardsButtons\">\n                            <a class=\"btn btn-primary\" href=\"https://mobirise.com\">\n                                Read More\n                            </a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"card mbr-col-sm-12\" mbr-class=\"{'mbr-px-1': !flexDirection,\n                             'mbr-col-md-12 mbr-col-lg-6': !flexDirection &amp;&amp; cardsCount >= 2,                          \n                             'mbr-col-md-6 mbr-col-lg-6 mbr-px-4': flexDirection &amp;&amp; cardsCount == 2,\n                             'mbr-col-md-8 mbr-col-lg-4 mbr-px-2': flexDirection &amp;&amp; cardsCount == 3,\n                             'mbr-col-md-6 mbr-col-lg-3 mbr-px-2': flexDirection &amp;&amp; cardsCount == 4,\n                             'md-pb': (flexDirection &amp;&amp; cardsCount > 2) || (!flexDirection &amp;&amp; cardsCount > 2),\n                             'lg-pb': !flexDirection &amp;&amp; cardsCount > 2,\n                             'last-child': cardsCount == 2}\" mbr-if=\"cardsCount > 1\">\n                <div class=\"card-wrapper\" mbr-class=\"{'mbr-flex': !flexDirection,\n                                 'mbr-column': checkImages &amp;&amp; flexDirection,\n                                 'mbr-p-4': (showBorders || !transparentBg) &amp;&amp; !flexDirection,                    \n                                 'mbr-row-reverse': checkImages &amp;&amp; !flexDirection  &amp;&amp; reverseContent}\">\n                    <div class=\"card-img mbr-flex\" mbr-if=\"checkImages\" mbr-class=\"{'mbr-pb-2': flexDirection &amp;&amp; !showBorders &amp;&amp; transparentBg,\n                                     'mbr-col-md-3 mbr-col-lg-3': imgWidth == 1 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-4 mbr-col-lg-4': imgWidth == 2 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-6 mbr-col-lg-6': imgWidth == 3 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-8 mbr-col-lg-8': imgWidth == 4 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-9 mbr-col-lg-9': imgWidth == 5 &amp;&amp; !flexDirection}\">\n                        <amp-img src=\"@PROJECT_PATH@/assets/images/02.jpg\" layout=\"responsive\" width=\"237\" height=\"158\" alt=\"Mobirise\" class=\"mobirise-loader\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/02.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                    </div>\n                    <div class=\"card-box mbr-m-auto\" mbr-if=\"(showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons)\" mbr-class=\"{'align-center': cardsAlign == 2,\n                                     'align-right': cardsAlign == 3,\n                                    'mbr-p-4': (showBorders || !transparentBg) &amp;&amp; flexDirection}\">\n                        <h4 class=\"card-subtitle mbr-fonts-style mbr-regular\" mbr-theme-style=\"display-4\" mbr-if=\"showCardsSubtitle\" data-app-selector=\".card-subtitle, .card-btn, .card-img\">\n                            Lorem ipsum dolor sit amet\n                        </h4>\n                        <h3 class=\"card-title mbr-pt-2 mbr-semibold mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showCardsTitle\" data-app-selector=\".card-title, .card-btn, .card-img\">\n                            Best Masters\n                        </h3>\n                        <p class=\"card-text mbr-fonts-style mbr-pt-3 mbr-regular\" mbr-theme-style=\"display-7\" mbr-if=\"showCardsText\" data-app-selector=\".card-text, .card-btn, .card-img\">\n                            Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>\n                        <div class=\"card-btn mbr-section-btn mbr-pt-3\" mbr-buttons=\"\" data-toolbar=\"-mbrBtnMove\" mbr-theme-style=\"display-7\" mbr-if=\"showCardsButtons\">\n                            <a class=\"btn btn-primary\" href=\"https://mobirise.com\">\n                                Read More\n                            </a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"card mbr-col-sm-12\" mbr-class=\"{'mbr-px-1': !flexDirection,\n                             'mbr-col-md-12 mbr-col-lg-6': !flexDirection &amp;&amp; cardsCount >= 2,\n                             'mbr-col-md-8 mbr-col-lg-4 mbr-px-2': flexDirection &amp;&amp; cardsCount == 3,\n                             'mbr-col-md-6 mbr-col-lg-3 mbr-px-2': flexDirection &amp;&amp; cardsCount == 4,\n                             'md-pb': !flexDirection &amp;&amp; cardsCount > 3,\n                             'last-child': cardsCount == 3}\" mbr-if=\"cardsCount > 2\">\n                <div class=\"card-wrapper\" mbr-class=\"{'mbr-flex': !flexDirection,\n                                 'mbr-column': checkImages &amp;&amp; flexDirection,\n                                 'mbr-p-4': (showBorders || !transparentBg) &amp;&amp; !flexDirection,                    \n                                 'mbr-row-reverse': checkImages &amp;&amp; !flexDirection  &amp;&amp; reverseContent}\">\n                    <div class=\"card-img mbr-flex\" mbr-if=\"checkImages\" mbr-class=\"{'mbr-pb-2': flexDirection &amp;&amp; !showBorders &amp;&amp; transparentBg,\n                                     'mbr-col-md-3 mbr-col-lg-3': imgWidth == 1 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-4 mbr-col-lg-4': imgWidth == 2 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-6 mbr-col-lg-6': imgWidth == 3 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-8 mbr-col-lg-8': imgWidth == 4 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-9 mbr-col-lg-9': imgWidth == 5 &amp;&amp; !flexDirection}\">\n                        <amp-img src=\"@PROJECT_PATH@/assets/images/03.jpg\" layout=\"responsive\" width=\"237\" height=\"158\" alt=\"Mobirise\" class=\"mobirise-loader\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/03.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                    </div>\n                    <div class=\"card-box mbr-m-auto\" mbr-if=\"(showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons)\" mbr-class=\"{'align-center': cardsAlign == 2,\n                                     'align-right': cardsAlign == 3,\n                                    'mbr-p-4': (showBorders || !transparentBg) &amp;&amp; flexDirection}\">\n                        <h4 class=\"card-subtitle mbr-fonts-style mbr-regular\" mbr-theme-style=\"display-4\" mbr-if=\"showCardsSubtitle\" data-app-selector=\".card-subtitle, .card-btn, .card-img\">\n                            Lorem ipsum dolor sit amet\n                        </h4>\n                        <h3 class=\"card-title mbr-pt-2 mbr-semibold mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showCardsTitle\" data-app-selector=\".card-title, .card-btn, .card-img\">\n                            Best Masters\n                        </h3>\n                        <p class=\"card-text mbr-fonts-style mbr-pt-3 mbr-regular\" mbr-theme-style=\"display-7\" mbr-if=\"showCardsText\" data-app-selector=\".card-text, .card-btn, .card-img\">\n                            Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>\n                        <div class=\"card-btn mbr-section-btn mbr-pt-3\" mbr-buttons=\"\" data-toolbar=\"-mbrBtnMove\" mbr-theme-style=\"display-7\" mbr-if=\"showCardsButtons\">\n                            <a class=\"btn btn-primary\" href=\"https://mobirise.com\">\n                                Read More\n                            </a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"card mbr-col-sm-12\" mbr-class=\"{'mbr-col-md-6 mbr-col-lg-3 mbr-px-2': flexDirection,\n                             'mbr-px-1 mbr-col-md-12 mbr-col-lg-6': !flexDirection, \n                             'last-child': cardsCount == 4}\" mbr-if=\"cardsCount > 3\">\n                <div class=\"card-wrapper\" mbr-class=\"{'mbr-flex': !flexDirection,\n                                 'mbr-column': checkImages &amp;&amp; flexDirection,\n                                 'mbr-p-4': (showBorders || !transparentBg) &amp;&amp; !flexDirection,                    \n                                 'mbr-row-reverse': checkImages &amp;&amp; !flexDirection  &amp;&amp; reverseContent}\">\n                    <div class=\"card-img mbr-flex\" mbr-if=\"checkImages\" mbr-class=\"{'mbr-pb-2': flexDirection &amp;&amp; !showBorders &amp;&amp; transparentBg,\n                                     'mbr-col-md-3 mbr-col-lg-3': imgWidth == 1 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-4 mbr-col-lg-4': imgWidth == 2 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-6 mbr-col-lg-6': imgWidth == 3 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-8 mbr-col-lg-8': imgWidth == 4 &amp;&amp; !flexDirection,\n                                     'mbr-col-md-9 mbr-col-lg-9': imgWidth == 5 &amp;&amp; !flexDirection}\">\n                        <amp-img src=\"@PROJECT_PATH@/assets/images/04.jpg\" layout=\"responsive\" width=\"237\" height=\"158\" alt=\"Mobirise\" class=\"mobirise-loader\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/04.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                    </div>\n                    <div class=\"card-box mbr-m-auto\" mbr-if=\"(showCardsTitle || showCardsSubtitle || showCardsText || showCardsButtons)\" mbr-class=\"{'align-center': cardsAlign == 2,\n                                     'align-right': cardsAlign == 3,\n                                    'mbr-p-4': (showBorders || !transparentBg) &amp;&amp; flexDirection}\">\n                        <h4 class=\"card-subtitle mbr-fonts-style mbr-regular\" mbr-theme-style=\"display-4\" mbr-if=\"showCardsSubtitle\" data-app-selector=\".card-subtitle, .card-btn, .card-img\">\n                            Lorem ipsum dolor sit amet\n                        </h4>\n                        <h3 class=\"card-title mbr-pt-2 mbr-semibold mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showCardsTitle\" data-app-selector=\".card-title, .card-btn, .card-img\">\n                            Best Masters\n                        </h3>\n                        <p class=\"card-text mbr-fonts-style mbr-pt-3 mbr-regular\" mbr-theme-style=\"display-7\" mbr-if=\"showCardsText\" data-app-selector=\".card-text, .card-btn, .card-img\">\n                            Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>\n                        <div class=\"card-btn mbr-section-btn mbr-pt-3\" mbr-buttons=\"\" data-toolbar=\"-mbrBtnMove\" mbr-theme-style=\"display-7\" mbr-if=\"showCardsButtons\">\n                            <a class=\"btn btn-primary\" href=\"https://mobirise.com\">\n                                Read More\n                            </a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"card-btn mbr-section-btn mbr-pt-5 mbr-px-4\" mbr-buttons=\"\" data-toolbar=\"-mbrBtnMove\" mbr-theme-style=\"display-7\" mbr-if=\"showButtons\" mbr-class=\"{'align-center': titleAlign == 2,\n                         'align-right': titleAlign == 3}\">\n            <a class=\"btn btn-primary\" href=\"https://mobirise.com\">\n                Read More\n            </a>\n        </div>\n    </div>\n</section>",
+          "_cid": "qYTeul98cP",
+          "_anchor": "features3-9",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [],
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)",
+              ".mbr-overlay": {
+                "background-color": "@overlayColor",
+                "opacity": "@overlayOpacity"
+              }
+            },
+            ".card-img": {
+              "& when (@flexDirection)": {
+                "width": "~\"@{imageWidth}%\""
+              },
+              "& when not (@flexDirection)": {
+                "padding": "0"
+              }
+            },
+            ".icons-list": {
+              "span": {
+                "font-size": "~\"@{iconsSize}rem\"",
+                "color": "@successColor !important",
+                "&:hover": {
+                  "color": "darken(@successColor, 26%) !important"
+                }
+              }
+            },
+            ".title-wrap, .card-box1, .card-box2": {
+              "width": "100%"
+            },
+            "& when not (@transparentBg)": {
+              ".card-wrapper": {
+                "background": "@cardBg"
+              }
+            },
+            "& when not (@flexDirection)": {
+              ".card-box1, .card-box2": {
+                "padding-left": "2.5rem",
+                "padding-right": "0",
+                "@media (max-width: 767px)": {
+                  "padding": "1rem 0 0"
+                }
+              },
+              "@media (max-width: 991px)": {
+                ".card-wrapper": {
+                  "flex-wrap": "wrap"
+                },
+                ".card-box2": {
+                  "padding": "1rem 0 0"
+                }
+              },
+              "img": {
+                "object-fit": "contain"
+              },
+              "amp-img": {
+                "width": "(@imageFlexWidth * 1%)",
+                "height": "auto"
+              },
+              ".card-box1, .card-img, .card-box2": {
+                "display": "inline-block"
+              }
+            },
+            ".line": {
+              "&:after": {
+                "content": "\"\"",
+                "display": "inline-block",
+                "width": "45px",
+                "max-width": "100%",
+                "border-top": "2px solid @primaryColor",
+                "vertical-align": "top"
+              },
+              "line-height": "2px"
+            }
+          },
+          "_name": "team1",
+          "_customHTML": "<section class=\"team1\" group=\"Teams\" plugins=\"amp-main\">\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n    <header>Size</header>\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"checkbox\" title=\"Row/Column\" name=\"flexDirection\">\n    <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"9\" step=\"1\" value=\"2\">\n    <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"9\" step=\"1\" value=\"2\">\n\n    <header>Title</header>\n    <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Show Line Title\" name=\"showLineTitle\" condition=\"showTitle\" checked=\"\">      \n    <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\">\n    <select title=\"Align\" name=\"titleAlign\" condition=\"showTitle || showSubtitle\">\n        <option value=\"1\">Left</option>\n        <option value=\"2\" selected=\"\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n\n    <header>Cards</header>\n    <input type=\"range\" inline=\"\" title=\"Count\" name=\"cardsAmount\" min=\"1\" max=\"4\" step=\"1\" value=\"4\">\n    <select title=\"Align\" name=\"cardAlign\" condition=\"showCardTitle || showCardSubtitle || showCardText || showSocial\">\n        <option value=\"1\" selected=\"\">Left</option>\n        <option value=\"2\">Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    <input type=\"checkbox\" title=\"Show Name\" name=\"showCardTitle\" checked=\"\">\n    <input type=\"checkbox\" title=\"Show Subtitle1\" name=\"showCardSubtitle1\" checked=\"\">\n    <input type=\"checkbox\" title=\"Show Subtitle2\" name=\"showCardSubtitle2\" checked=\"\">    \n    <input type=\"checkbox\" title=\"Show Text\" name=\"showCardText\" checked=\"\">\n    <input type=\"checkbox\" title=\"Transparent\" name=\"transparentBg\" checked=\"\">\n    <input type=\"color\" title=\"Color\" name=\"cardBg\" value=\"#efefef\" condition=\"!transparentBg\">\n\n    <header>Image</header>\n    <input type=\"checkbox\" title=\"Rounded\" name=\"roundedImage\" checked=\"\">\n    <input type=\"range\" inline=\"\" title=\"Width\" name=\"imageWidth\" min=\"10\" max=\"100\" step=\"1\" value=\"43\" condition=\"flexDirection\">\n    <input type=\"range\" inline=\"\" title=\"Width\" name=\"imageFlexWidth\" min=\"10\" max=\"100\" step=\"1\" value=\"51\" condition=\"!flexDirection\">\n\n    <header>Icons</header>\n    <input type=\"checkbox\" title=\"Show/Hide\" name=\"showSocial\" checked=\"\">\n    <input type=\"range\" inline=\"\" title=\"Count\" name=\"iconsCount\" min=\"1\" max=\"4\" step=\"1\" value=\"3\" condition=\"showSocial\">\n    <input type=\"range\" inline=\"\" title=\"Size\" name=\"iconsSize\" min=\"1\" max=\"4\" step=\"0.1\" value=\"1.3\" condition=\"showSocial\">\n\n    <header>Background</header>\n    <fieldset type=\"background\" name=\"bg\">\n        <input type=\"image\" title=\"Background Image\" value=\"../_images/background4.jpg\">\n        <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected=\"\">\n    </fieldset>\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" checked=\"\" condition=\"bg.type!='color'\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"bg.type!='color' &amp;&amp; overlay\">\n    <input type=\"range\" inline=\"\" title=\"Overlay Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"bg.type!='color' &amp;&amp; overlay\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay &amp;&amp; bg.type !== 'color'\"></div>\n    <!--  -->\n    <div mbr-class=\"{'container': !fullWidth,\n                       'container-fluid': fullWidth}\">\n        <div class=\"title mbr-pb-4 mbr-px-2\" mbr-class=\"{'align-center':titleAlign==2,\n                         'align-right':titleAlign==3,\n                         'mbr-px-4': cardsAmount == 4,\n                         'mbr-px-5': cardsAmount<4}\" mbr-if=\"showTitle || showSubtitle\">\n            <h3 class=\"mbr-section-title mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n                Team\n            </h3>\n            <div class=\"line mbr-pt-3\" mbr-if=\"showLineTitle &amp;&amp; showTitle\"></div>\n            <h4 class=\"mbr-section-subtitle mbr-pt-2 mbr-fonts-style mbr-regular\" mbr-theme-style=\"display-4\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">\n                Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n            </h4>\n        </div>\n        <div class=\"mbr-row mbr-jc-c\" mbr-class=\"{'mbr-px-2': cardsAmount==4 || !flexDirection}\">\n            <div class=\"card mbr-col-sm-12\" mbr-class=\"{'mbr-col-md-6 mbr-col-lg-4 mbr-px-4': cardsAmount < 3 &amp;&amp; flexDirection,\n                             'mbr-col-md-8 mbr-col-lg-4 mbr-px-2': cardsAmount == 3 &amp;&amp; flexDirection,\n                             'mbr-col-md-6 mbr-col-lg-3 mbr-px-2':cardsAmount == 4 &amp;&amp; flexDirection,\n                             'mbr-col-md-12 mbr-col-lg-12 mbr-px-4':!flexDirection,\n                             'align-center':cardAlign==2,\n                             'align-right':cardAlign==3,\n                             'md-pb': (flexDirection &amp;&amp; cardsAmount > 2) || (!flexDirection &amp;&amp; cardsAmount > 1),\n                             'lg-pb': !flexDirection &amp;&amp; cardsAmount > 2,\n                             'last-child': cardsAmount == 1}\">\n                <div class=\"card-wrapper\" mbr-class=\"{'mbr-flex':!flexDirection,\n                                 'mbr-p-2':!transparentBg}\">\n                    <div class=\"card-img\" mbr-class=\"{'mbr-pb-2':(showCardTitle||showCardSubtitle||showCardText) &amp;&amp; flexDirection,\n                                     'mbr-m-auto': cardAlign==2 &amp;&amp; flexDirection,\n                                     'mbr-ml-auto':cardAlign==3 &amp;&amp; flexDirection,\n                                     'mbr-col-md-6 mbr-col-lg-3':!flexDirection}\">\n                        <amp-img class=\"mobirise-loader mbr-m-auto\" mbr-class=\"{'rounded': roundedImage}\" src=\"@PROJECT_PATH@/assets/images/face1.jpg\" layout=\"responsive\" width=\"133\" height=\"133\" alt=\"Mobirise\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/face1.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                    </div>\n                    <div class=\"card-box1 mbr-m-auto\" mbr-if=\"showCardTitle || showCardSubtitle1 || showSocial\" mbr-class=\"{'mbr-col-md-6 mbr-col-lg-3':!flexDirection}\">\n                            <h3 class=\"card-title mbr-semibold mbr-fonts-style mbr-pb-2\" mbr-theme-style=\"display-5\" mbr-if=\"showCardTitle\" data-app-selector=\".card-title\">\n                                Jane Doe\n                            </h3>\n                            <h4 class=\"card-subtitle1 mbr-regular mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showCardSubtitle1\" data-app-selector=\".card-subtitle1\">\n                                Barber\n                            </h4>\n                            <div class=\"icons-list mbr-pt-3\" mbr-list=\"\" mbr-list-grow=\"iconsCount\" mbr-if=\"iconsCount > 0 &amp;&amp; showSocial\" mbr-link-type=\"socials\">\n                                <a href=\"https://www.facebook.com/pages/Mobirise/1616226671953247\" target=\"_blank\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-facebook-f fa\"></span>\n                                </a>\n                                <a href=\"https://www.linkedin.com/in/mobirise\" target=\"_blank\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-linkedin fa\"></span>\n                                </a>\n                                <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-twitter fa\"></span>\n                                </a>\n                            </div>\n                        </div>\n                        <div class=\"card-box2 mbr-m-auto\" mbr-class=\"{'mbr-col-md-12 mbr-col-lg-6':!flexDirection}\" mbr-if=\"showCardText || showCardSubtitle2\">\n                            <p class=\"card-subtitle2 mbr-fonts-style mbr-bold\" mbr-theme-style=\"display-7\" mbr-if=\"showCardSubtitle2\" data-app-selector=\"card-subtitle2\" mbr-class=\"{'mbr-pt-3':flexDirection}\">\n                                Lorem ipsum dolor sit amet.</p>\n                            <p class=\"card-text mbr-fonts-style mbr-pt-3 mbr-regular\" mbr-theme-style=\"display-7\" mbr-if=\"showCardText\" data-app-selector=\".card-text\">\n                                Lorem ipsum dolor sit amet, consectetur adipisicing.\n                            </p>\n                        </div>\n                </div>\n            </div>\n            <!--  -->\n            <div class=\"card mbr-col-sm-12\" mbr-class=\"{'mbr-col-md-6 mbr-col-lg-4 mbr-px-4': cardsAmount < 3 &amp;&amp; flexDirection,\n                             'mbr-col-md-8 mbr-col-lg-4 mbr-px-2': cardsAmount == 3 &amp;&amp; flexDirection,\n                             'mbr-col-md-6 mbr-col-lg-3 mbr-px-2':cardsAmount == 4 &amp;&amp; flexDirection,\n                             'mbr-col-md-12 mbr-col-lg-12 mbr-px-4':!flexDirection,\n                             'align-center':cardAlign==2,\n                             'align-right':cardAlign==3,\n                             'md-pb': (flexDirection &amp;&amp; cardsAmount > 2) || (!flexDirection &amp;&amp; cardsAmount > 2),\n                             'lg-pb': !flexDirection &amp;&amp; cardsAmount > 2,\n                             'last-child': cardsAmount == 2}\" mbr-if=\"cardsAmount>1\">\n                <div class=\"card-wrapper\" mbr-class=\"{'mbr-flex':!flexDirection,\n                                 'mbr-p-2':!transparentBg}\">\n                    <div class=\"card-img\" mbr-class=\"{'mbr-pb-2':(showCardTitle||showCardSubtitle||showCardText) &amp;&amp; flexDirection,\n                                     'mbr-m-auto':cardAlign==2 &amp;&amp; flexDirection,\n                                     'mbr-ml-auto':cardAlign==3 &amp;&amp; flexDirection,\n                                     'mbr-col-md-6 mbr-col-lg-3':!flexDirection}\">\n                        <amp-img class=\"mobirise-loader mbr-m-auto\" mbr-class=\"{'rounded': roundedImage}\" src=\"@PROJECT_PATH@/assets/images/face2.jpg\" layout=\"responsive\" width=\"133\" height=\"133\" alt=\"Mobirise\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/face2.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                    </div>\n                    <div class=\"card-box1 mbr-m-auto\" mbr-if=\"showCardTitle || showCardSubtitle1  || showSocial\" mbr-class=\"{'mbr-col-md-6 mbr-col-lg-3':!flexDirection}\">\n                            <h3 class=\"card-title mbr-semibold mbr-fonts-style mbr-pb-2\" mbr-theme-style=\"display-5\" mbr-if=\"showCardTitle\" data-app-selector=\".card-title\">\n                                Jane Doe\n                            </h3>\n                            <h4 class=\"card-subtitle1 mbr-regular mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showCardSubtitle1\" data-app-selector=\".card-subtitle1\">\n                                Barber\n                            </h4>\n                            <div class=\"icons-list mbr-pt-3\" mbr-list=\"\" mbr-list-grow=\"iconsCount\" mbr-if=\"iconsCount > 0 &amp;&amp; showSocial\" mbr-link-type=\"socials\">\n                                <a href=\"https://www.facebook.com/pages/Mobirise/1616226671953247\" target=\"_blank\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-facebook-f fa\"></span>\n                                </a>\n                                <a href=\"https://www.linkedin.com/in/mobirise\" target=\"_blank\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-linkedin fa\"></span>\n                                </a>\n                                <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-twitter fa\"></span>\n                                </a>\n                            </div>\n                        </div>\n                        <div class=\"card-box2 mbr-m-auto\" mbr-class=\"{'mbr-col-md-12 mbr-col-lg-6':!flexDirection}\" mbr-if=\"showCardText || showCardSubtitle2\">\n                            <p class=\"card-subtitle2 mbr-fonts-style mbr-bold\" mbr-theme-style=\"display-7\" mbr-if=\"showCardSubtitle2\" data-app-selector=\".card-subtitle2\" mbr-class=\"{'mbr-pt-3':flexDirection}\">\n                                Lorem ipsum dolor sit amet.</p>\n                            <p class=\"card-text mbr-fonts-style mbr-pt-3 mbr-regular\" mbr-theme-style=\"display-7\" mbr-if=\"showCardText\" data-app-selector=\".card-text\">\n                                Lorem ipsum dolor sit amet, consectetur adipisicing.\n                            </p>\n                        </div>\n                </div>\n            </div>\n            <!--  -->\n            <div class=\"card mbr-col-sm-12\" mbr-class=\"{\n                             'mbr-col-md-8 mbr-col-lg-4 mbr-px-2': cardsAmount == 3 &amp;&amp; flexDirection,\n                             'mbr-col-md-6 mbr-col-lg-3 mbr-px-2':cardsAmount == 4 &amp;&amp; flexDirection,\n                             'mbr-col-md-12 mbr-col-lg-12 mbr-px-4': !flexDirection,\n                             'align-center':cardAlign==2,\n                             'align-right':cardAlign==3,\n                             'md-pb': cardsAmount > 3,\n                             'lg-pb': !flexDirection &amp;&amp; cardsAmount > 3,                          \n                             'last-child': cardsAmount == 3}\" mbr-if=\"cardsAmount>2\">\n                <div class=\"card-wrapper\" mbr-class=\"{'mbr-flex':!flexDirection,\n                                 'mbr-p-2':!transparentBg}\">\n                    <div class=\"card-img\" mbr-class=\"{'mbr-pb-2':(showCardTitle||showCardSubtitle||showCardText) &amp;&amp; flexDirection,\n                                     'mbr-m-auto':cardAlign==2 &amp;&amp; flexDirection,\n                                     'mbr-ml-auto':cardAlign==3 &amp;&amp; flexDirection,\n                                     'mbr-col-md-6 mbr-col-lg-3':!flexDirection}\">\n                        <amp-img class=\"mobirise-loader mbr-m-auto\" mbr-class=\"{'rounded': roundedImage}\" src=\"@PROJECT_PATH@/assets/images/face3.jpg\" layout=\"responsive\" width=\"133\" height=\"133\" alt=\"Mobirise\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/face3.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                    </div>\n                    <div class=\"card-box1 mbr-m-auto\" mbr-if=\"showCardTitle || showCardSubtitle1 || showSocial\" mbr-class=\"{'mbr-col-md-6 mbr-col-lg-3':!flexDirection}\">\n                            <h3 class=\"card-title mbr-semibold mbr-fonts-style mbr-pb-2\" mbr-theme-style=\"display-5\" mbr-if=\"showCardTitle\" data-app-selector=\".card-title\">\n                                Jane Doe\n                            </h3>\n                            <h4 class=\"card-subtitle1 mbr-regular mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showCardSubtitle1\" data-app-selector=\".card-subtitle1\">\n                                Barber\n                            </h4>\n                            <div class=\"icons-list mbr-pt-3\" mbr-list=\"\" mbr-list-grow=\"iconsCount\" mbr-if=\"iconsCount > 0 &amp;&amp; showSocial\" mbr-link-type=\"socials\">\n                                <a href=\"https://www.facebook.com/pages/Mobirise/1616226671953247\" target=\"_blank\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-facebook-f fa\"></span>\n                                </a>\n                                <a href=\"https://www.linkedin.com/in/mobirise\" target=\"_blank\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-linkedin fa\"></span>\n                                </a>\n                                <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-twitter fa\"></span>\n                                </a>\n                            </div>\n                        </div>\n                        <div class=\"card-box2 mbr-m-auto\" mbr-class=\"{'mbr-col-md-12 mbr-col-lg-6':!flexDirection}\" mbr-if=\"showCardText || showCardSubtitle2\">\n                            <p class=\"card-subtitle2 mbr-fonts-style mbr-bold\" mbr-theme-style=\"display-7\" mbr-if=\"showCardSubtitle2\" data-app-selector=\".card-subtitle2\" mbr-class=\"{'mbr-pt-3':flexDirection}\">\n                                Lorem ipsum dolor sit amet.</p>\n                            <p class=\"card-text mbr-fonts-style mbr-pt-3 mbr-regular\" mbr-theme-style=\"display-7\" mbr-if=\"showCardText\" data-app-selector=\".card-text\">\n                                Lorem ipsum dolor sit amet, consectetur adipisicing.\n                            </p>\n                        </div>\n                </div>\n            </div>\n            <!--  -->\n            <div class=\"card mbr-col-sm-12\" mbr-class=\"{'mbr-col-md-6 mbr-col-lg-3 mbr-px-2':cardsAmount == 4 &amp;&amp; flexDirection,\n                             'mbr-col-md-12 mbr-col-lg-12 mbr-px-4': !flexDirection,\n                             'align-center':cardAlign==2,\n                             'align-right':cardAlign==3,\n                             'last-child': cardsAmount == 4}\" mbr-if=\"cardsAmount>3\">\n                <div class=\"card-wrapper\" mbr-class=\"{'mbr-flex':!flexDirection,\n                                 'mbr-p-2':!transparentBg}\">\n                    <div class=\"card-img\" mbr-class=\"{'mbr-pb-2':(showCardTitle||showCardSubtitle||showCardText) &amp;&amp; flexDirection,\n                                     'mbr-m-auto':cardAlign==2 &amp;&amp; flexDirection,\n                                     'mbr-ml-auto':cardAlign==3 &amp;&amp; flexDirection,\n                                     'mbr-col-md-6 mbr-col-lg-3':!flexDirection}\">\n                        <amp-img class=\"mobirise-loader mbr-m-auto\" mbr-class=\"{'rounded': roundedImage}\" src=\"@PROJECT_PATH@/assets/images/face4.jpg\" layout=\"responsive\" width=\"133\" height=\"133\" alt=\"Mobirise\">\n                            <div placeholder=\"\">\n                                <div class=\"mobirise-spinner\">\n                                    <em></em>\n                                    <em></em>\n                                    <em></em>\n                                </div>\n                            </div>\n                            <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/face4.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                    </div>\n                    <div class=\"card-box1 mbr-m-auto\" mbr-if=\"showCardTitle || showCardSubtitle1  || showSocial\" mbr-class=\"{'mbr-col-md-6 mbr-col-lg-3':!flexDirection}\">\n                            <h3 class=\"card-title mbr-semibold mbr-fonts-style mbr-pb-2\" mbr-theme-style=\"display-5\" mbr-if=\"showCardTitle\" data-app-selector=\".card-title\">\n                                Jane Doe\n                            </h3>\n                            <h4 class=\"card-subtitle1 mbr-regular mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showCardSubtitle1\" data-app-selector=\".card-subtitle1\">\n                                Barber\n                            </h4>\n                            <div class=\"icons-list mbr-pt-3\" mbr-list=\"\" mbr-list-grow=\"iconsCount\" mbr-if=\"iconsCount > 0 &amp;&amp; showSocial\" mbr-link-type=\"socials\">\n                                <a href=\"https://www.facebook.com/pages/Mobirise/1616226671953247\" target=\"_blank\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-facebook-f fa\"></span>\n                                </a>\n                                <a href=\"https://www.linkedin.com/in/mobirise\" target=\"_blank\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-linkedin fa\"></span>\n                                </a>\n                                <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-twitter fa\"></span>\n                                </a>\n                            </div>\n                        </div>\n                        <div class=\"card-box2 mbr-m-auto\" mbr-class=\"{'mbr-col-md-12 mbr-col-lg-6':!flexDirection}\" mbr-if=\"showCardSubtitle2 || showCardText\">\n                            <p class=\"card-subtitle2 mbr-fonts-style mbr-bold\" mbr-theme-style=\"display-7\" mbr-if=\"showCardSubtitle2\" data-app-selector=\".card-subtitle2\" mbr-class=\"{'mbr-pt-3':flexDirection}\">\n                                Lorem ipsum dolor sit amet.</p>\n                            <p class=\"card-text mbr-fonts-style mbr-pt-3 mbr-regular\" mbr-theme-style=\"display-7\" mbr-if=\"showCardText\" data-app-selector=\".card-text\">\n                                Lorem ipsum dolor sit amet, consectetur adipisicing.\n                            </p>\n                        </div>\n                </div>\n            </div>\n            <!--  -->\n        </div>\n    </div>\n</section>",
+          "_cid": "qYTHwdkO3f",
+          "_anchor": "team1-b",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [],
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)",
+              "& when (@overlay)": {
+                ".mbr-overlay": {
+                  "background": "@overlayColor",
+                  "opacity": "@overlayOpacity"
+                }
+              }
+            },
+            ".icons-list": {
+              ".amp-iconfont": {
+                "color": "@infoColor !important",
+                "font-size": "(@iconsSize * 1rem)",
+                "&:hover": {
+                  "color": "@primaryColor !important"
+                }
+              }
+            },
+            ".line": {
+              "&:after": {
+                "content": "\"\"",
+                "display": "inline-block",
+                "width": "45px",
+                "max-width": "100%",
+                "border-top": "2px solid @primaryColor",
+                "vertical-align": "top"
+              },
+              "line-height": "2px"
+            },
+            "@media (min-width: 992px)": {
+              ".icons-list": {
+                "padding-left": "30px",
+                "padding-top": "0"
+              }
+            },
+            ".contacts-block": {
+              "@media (max-width: 991px)": {
+                "flex-wrap": "wrap"
+              }
+            },
+            ".contacts-box": {
+              "padding-left": "0",
+              "padding-right": "0",
+              ".mbr-text span": {
+                "display": "block",
+                "padding-left": "0",
+                "padding-right": "0",
+                "@media (min-width: 768px)": {
+                  "display": "inline-block",
+                  "width": "40%",
+                  "vertical-align": "top"
+                }
+              }
+            }
+          },
+          "_name": "contacts1",
+          "_customHTML": "<section class=\"contacts1\" group=\"Contacts\" plugins=\"amp-main\">\n\t<mbr-parameters>\n\t<!-- Block parameters controls (Blue \"Gear\" panel) -->\n\t<header>Size</header>\n\t<input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n\t<input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n\t<input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n\t<header>Title</header>\n\t<input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n    <input type=\"checkbox\" title=\"Show Line Title\" name=\"showLineTitle\" condition=\"showTitle\" checked>    \n\t<input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\">\n\t<select title=\"Title\" name=\"titleAlign\" condition=\"showTitle || showSubtitle\">\n\t\t<option value=\"1\" selected>Left</option>\n\t\t<option value=\"2\">Center</option>\n\t\t<option value=\"3\">Right</option>\n\t</select>\n\t<header>Contacts</header>\n\t<input type=\"checkbox\" name=\"showAddress\" title=\"Address\" checked>\n\t<input type=\"checkbox\" name=\"showPhone\" title=\"Phone\" checked>\n\t<input type=\"checkbox\" name=\"showEmail\" title=\"E-mail\" checked>\n\t<select title=\"Contacts\" name=\"cardAlign\" condition=\"showCardTitle || showAddress || showPhone || showEmail || showSocial\">\n\t\t<option value=\"1\" selected>Left</option>\n\t\t<option value=\"2\">Center</option>\n\t\t<option value=\"3\">Right</option>\n\t</select>\n\t<header>Icons</header>\n\t<input type=\"checkbox\" title=\"Show/Hide\" name=\"showSocial\" checked>\n\t<input type=\"range\" inline title=\"Count\" name=\"iconsCount\" min=\"1\" max=\"10\" value=\"4\" step=\"1\" condition=\"showSocial\">\n\t<input type=\"range\" inline title=\"Size\" name=\"iconsSize\" min=\"1\" max=\"4\" step=\"0.1\" value=\"2\" condition=\"showSocial\">\n\t<header>Background</header>\n    <fieldset type=\"background\" name=\"bg\">\n        <input type=\"image\" title=\"Background Image\" value=\"../_images/background4.jpg\">\n        <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected>\n    </fieldset>\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" checked condition=\"bg.type !== 'color'\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#efefef\" condition=\"overlay && bg.type == 'image'\">\n    <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"overlay && bg.type == 'image'\">\n\t</mbr-parameters>\n\t<!-- Block parameters controls (Blue \"Gear\" panel) -->\n\t<div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\"></div>\n\t<div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n\t\t<div class=\"title mbr-pb-4 mbr-px-4\" mbr-if=\"showTitle||showSubtitle\" mbr-class=\"{'align-center':titleAlign==2,\n\t\t\t\t\t\t 'align-right':titleAlign==3}\">\n\t\t\t<h3 class=\"mbr-section-title mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n\t\t\t\tMake It Beautiful\n\t\t\t</h3>\n            <div class=\"line mbr-pt-3\" mbr-if=\"showLineTitle && showTitle\"></div>\n\t\t\t<h4 class=\"mbr-section-subtitle mbr-fonts-style mbr-pt-2 mbr-regular\" mbr-theme-style=\"display-4\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">\n\t\t\t\tSell your Product without Selling your Product\n\t\t\t</h4>\n\t\t</div>\n\t\t<div class=\"contacts-block mbr-flex mbr-jc-c mbr-px-4\" mbr-class=\"{'align-center':cardAlign==2,\n\t\t\t\t\t\t 'align-right':cardAlign==3}\">\n\t\t\t<div class=\"contacts-box mbr-col-md-12 mbr-col-lg-6\" mbr-if=\"showAddress || showPhone || showEmail\">\n\t\t\t\t<p class=\"mbr-text contacts-text mbr-fonts-style\" mbr-class=\"{'mbr-pb-2':showPhone || showEmail}\" mbr-if=\"showAddress\" mbr-theme-style=\"display-7\" data-app-selector=\".contacts-text, .icons-list\">\n\t\t\t\t\t<span class=\"mbr-bold card-title mbr-col-sm-12 mbr-col-md-6\">Address:</span> <span mbr-link-type=\"address\" class=\"mbr-regular\">10 Street, Los Angeles, CA, 93050</span>\n\t\t\t\t</p>\n\t\t\t\t<p class=\"mbr-text contacts-text mbr-fonts-style\" mbr-class=\"{'mbr-pb-2':showEmail}\" mbr-if=\"showPhone\" mbr-theme-style=\"display-7\" data-app-selector=\".contacts-text, .icons-list\">\n                    <span class=\"mbr-bold card-title mbr-col-sm-12 mbr-col-md-6\">Phone:</span> <span mbr-link-type=\"phone\" class=\"mbr-regular\">1.555.234.4567</span>\n\t\t\t\t</p>\n\t\t\t\t<p class=\"mbr-text contacts-text mbr-fonts-style\" mbr-if=\"showEmail\" mbr-theme-style=\"display-7\" data-app-selector=\".contacts-text, .icons-list\">\n\t\t\t\t\t<span class=\"mbr-bold card-title mbr-col-sm-12 mbr-col-md-6\">E-mail:</span> <span mbr-link-type=\"email\" class=\"mbr-regular\">demomail@test.org</span>\n\t\t\t\t</p>\n            </div>   \n            <div class=\"icons-list social mbr-col-md-12 mbr-col-lg-6 mbr-pt-4 mbr-m-auto\" mbr-if=\"showSocial\" mbr-list mbr-list-grow=\"iconsCount\" mbr-link-type=\"socials\">\n                <a href=\"http://www.youtube.com/channel/UCt_tncVAetpK5JeM8L-8jyw\" target=\"_blank\">\n                    <span mbr-icon class=\"amp-iconfont fa-youtube fa\"></span>\n                </a>\n                <a href=\"https://www.facebook.com/pages/Mobirise/1616226671953247\" target=\"_blank\">\n                    <span mbr-icon class=\"amp-iconfont fa-facebook-square fa\"></span>\n                </a>\n                <a href=\"https://plus.google.com/u/0/+Mobirise/posts\" target=\"_blank\">\n                    <span mbr-icon class=\"amp-iconfont fa-google-plus-circle fa\"></span>\n                </a>\n                <a href=\"https://www.linkedin.com/in/mobirise\" target=\"_blank\">\n                    <span mbr-icon class=\"amp-iconfont fa-linkedin-square fa\"></span>\n                </a>\n            </div>\n\t\t</div>\n\t</div>\n</section>",
+          "_cid": "qYTI5qElLy",
+          "_anchor": "contacts1-c",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [],
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)",
+              ".mbr-overlay": {
+                "background-color": "@overlayColor",
+                "opacity": "@overlayOpacity"
+              }
+            },
+            ".link-items": {
+              "@media (max-width: 992px)": {
+                "justify-content": "space-between"
+              },
+              ".fLink": {
+                "width": "auto",
+                "line-height": "2"
+              }
+            },
+            "& when (@typeBlock = '1')": {
+              ".mbr-row": {
+                "margin": "0",
+                "& when (@showCopyright)": {
+                  "margin-top": "1rem"
+                }
+              },
+              ".footer-container": {
+                "flex-direction": "column-reverse"
+              }
+            },
+            "& when (@typeBlock = '2')": {
+              ".footer-container": {
+                "& when (@showCopyright) and (@showItems)": {
+                  "@media (min-width: 992px)": {
+                    "justify-content": "space-between"
+                  },
+                  "@media (max-width: 991px)": {
+                    "justify-content": "center"
+                  }
+                }
+              },
+              ".mbr-row": {
+                "width": "auto",
+                "@media (max-width: 992px)": {
+                  "padding": "0",
+                  "width": "100%",
+                  "justify-content": "center",
+                  "& when (@showCopyright)": {
+                    "&:nth-child(1)": {
+                      "margin-bottom": "1rem"
+                    }
+                  }
+                }
+              },
+              ".copyright": {
+                "width": "auto"
+              }
+            },
+            ".line": {
+              "&:after": {
+                "content": "\"\"",
+                "display": "inline-block",
+                "width": "45px",
+                "max-width": "100%",
+                "border-top": "2px solid @primaryColor",
+                "vertical-align": "top"
+              },
+              "line-height": "2px"
+            }
+          },
+          "_name": "footer1",
+          "_customHTML": "<section class=\"footer1\" group=\"Footers\" plugins=\"amp-main\" global once=\"footer\">\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n    <header>Size</header>\n    <select title=\"Block Type\" name=\"typeBlock\">\n        <option value=\"1\" selected>Type 1</option>\n        <option value=\"2\">Type 2</option>\n    </select>\n    <!--  -->\n    <input type=\"checkbox\" title=\"Reverse Content\" name=\"reverseContent\" condition=\"typeBlock==2\">\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n    <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n    <!--  -->\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Copyright\" name=\"showCopyright\" checked>\n    <input type=\"checkbox\" title=\"Show Line Title\" name=\"showLineTitle\" condition=\"showCopyright\" checked>     \n    <input type=\"checkbox\" title=\"Items\" name=\"showItems\" checked>\n    <input type=\"range\" inline title=\"Items Count\" name=\"itemsCount\" min=\"1\" max=\"7\" step=\"1\" value=\"5\" condition=\"showItems\">\n    <!--  -->\n    <!--  -->\n    <header>Background</header>\n    <fieldset type=\"background\" name=\"bg\">\n        <input type=\"image\" title=\"Background Image\" value=\"../_images/background4.jpg\">\n        <input type=\"color\" title=\"Background Color\" value=\"#000000\" selected>\n    </fieldset>\n    <!--  -->\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" checked condition=\"bg.type!='color'\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#000000\" condition=\"bg.type!='color' && overlay\">\n    <input type=\"range\" inline title=\"Overlay Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.4\" condition=\"bg.type!='color' && overlay\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\"></div>\n    <div class=\"footer-container mbr-flex\" mbr-class=\"{'container': !fullWidth,\n                     'container-fluid': fullWidth,\n                     'mbr-jc-c': (!showCopyright || !showItems) && typeBlock==2,\n                     'mbr-row-reverse': reverseContent}\">\n        <div mbr-list mbr-list-grow=\"itemsCount\" class=\"mbr-row link-items mbr-jc-c mbr-fonts-style\" mbr-if=\"showItems\" mbr-theme-style=\"display-7\">\n            <p class=\"mbr-text fLink mbr-px-1 mbr-white\" data-app-selector=\".fLink\">\n                Home\n            </p>\n            <p class=\"mbr-text fLink mbr-px-1 mbr-white\" data-app-selector=\".fLink\">\n                About Us\n            </p>\n            <p class=\"mbr-text fLink mbr-px-1 mbr-white\" data-app-selector=\".fLink\">\n                Services\n            </p>\n            <p class=\"mbr-text fLink mbr-px-1 mbr-white\" data-app-selector=\".fLink\">\n                Contacts\n            </p>\n            <p class=\"mbr-text fLink mbr-px-1 mbr-white\" data-app-selector=\".fLink\">\n                Share Us\n            </p>\n        </div>\n        <div class=\"copyright mbr-px-2 mbr-jc-c\" mbr-if=\"showCopyright\">\n            <p class=\"mbr-text mbr-fonts-style mbr-white align-center\" mbr-theme-style=\"display-7\" data-app-selector=\".copyright .mbr-text\" data-app-placeholder=\"Type Text\">\n                © Copyright 2018 <span mbr-link-type=\"name\">Mobirise</span> - All Rights Reserved\n            </p>\n            <div class=\"line mbr-pt-3 align-center\" mbr-if=\"showLineTitle && showCopyright\"></div>\n        </div>\n    </div>\n</section>",
+          "_cid": "qYTI70nTOr",
+          "_anchor": "footer1-d",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [],
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footer",
+          "_params": {}
+        },
+        {
+          "_styles": {
+            "background-color": "@menuBgColor",
+            ".navbar": {
+              "background": "@menuBgColor"
+            },
+            "& when (@showLogo)": {
+              ".navbar-brand amp-img": {
+                "height": "~\"@{logoHeight}px\"",
+                "width": "~\"@{logoWidth}px\""
+              }
+            },
+            "& when (@showBrand)": {
+              ".navbar-caption": {
+                "line-height": "inherit !important"
+              }
+            },
+            ".navbar .navbar-collapse": {
+              "@media (max-width: 991px)": {
+                "background": "@menuBgColor",
+                "& when (@sidebarSide = 'left')": {
+                  "right": "auto",
+                  "left": "0"
+                }
+              }
+            },
+            "& when (@showItems)": {
+              ".nav-link": {
+                "margin": ".667em 1em !important",
+                "padding": "0 !important"
+              },
+              ".dropdown-item.active, .dropdown-item:active": {
+                "background-color": "transparent"
+              },
+              ".dropdown-menu": {
+                "background": "@menuBgColor"
+              }
+            },
+            ".hamburger span": {
+              "background-color": "@hamburgerColor"
+            },
+            ".builder-sidebar": {
+              "background-color": "@menuBgColor"
+            },
+            ".close-sidebar": {
+              "&:focus": {
+                "outline": "2px auto @primaryColor"
+              },
+              "span": {
+                "background-color": "@hamburgerColor"
+              }
+            },
+            "& when (@showSocial)": {
+              ".menu-social-list": {
+                ".amp-iconfont": {
+                  "color": "@infoColor !important",
+                  "&:hover": {
+                    "color": "@primaryColor !important"
+                  }
+                },
+                "& when (@showItems)": {
+                  "@media (min-width: 992px)": {
+                    "padding-left": "1rem"
+                  },
+                  "@media (max-width: 991px)": {
+                    "padding-top": ".5rem"
+                  }
+                },
+                "& when (@showButtons)": {
+                  "@media (max-width: 991px)": {
+                    "padding-bottom": ".5rem"
+                  }
+                }
+              }
+            },
+            ".nav-item .nav-link": {
+              "&:hover,:focus": {
+                "color": "@primaryColor !important"
+              }
+            }
+          },
+          "_name": "menu1",
+          "_customHTML": "<section class=\"menu1 menu horizontal-menu\" group=\"Menu\" plugins=\"DropDown, amp-main, amp-sidebar\" always-top=\"\" global=\"\" once=\"menu\">\n\t<mbr-parameters>\n\t<!-- Block parameters controls (Blue \"Gear\" panel) -->\n\t<!--  -->\n\t<header>Size</header>\n\t<input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n\t<input type=\"checkbox\" title=\"Sticky\" name=\"sticky\" checked=\"\">\n\t<!--  -->\n\t<header>Show/Hide</header>\t\n\t<input type=\"checkbox\" title=\"Show Logo\" name=\"showLogo\">\n\t<input type=\"range\" title=\"Logo Height\" inline=\"\" name=\"logoHeight\" min=\"30\" max=\"60\" value=\"40\" step=\"1\" condition=\"showLogo\">\n\t<input type=\"range\" title=\"Logo Width\" inline=\"\" name=\"logoWidth\" min=\"30\" max=\"60\" value=\"40\" step=\"1\" condition=\"showLogo\">\n\t<input type=\"checkbox\" title=\"Show Brand Name\" name=\"showBrand\" checked=\"\">\n\t<input type=\"checkbox\" title=\"Show Menu Items\" name=\"showItems\" checked=\"\">\n\t<input type=\"checkbox\" title=\"Show Button(s)\" name=\"showButtons\" checked=\"\">\n\t<input type=\"checkbox\" title=\"Show Social\" name=\"showSocial\" checked=\"\">\n\t<input type=\"range\" inline=\"\" title=\"Icons Count\" name=\"iconsCount\" min=\"1\" max=\"6\" value=\"3\" step=\"1\" condition=\"showSocial\">\n\t<header>Sidebar</header>\n\t<select title=\"Side\" name=\"sidebarSide\">\n\t\t<option value=\"left\">Left</option>\n\t\t<option value=\"right\" selected=\"\">Right</option>\n\t</select>\n\t<input type=\"color\" title=\"Hamburger Color\" name=\"hamburgerColor\" value=\"#232323\">\n\t<header>Background</header>\n\t<input type=\"color\" title=\"Color\" name=\"menuBgColor\" value=\"#ffffff\">\n\t<!-- End block parameters -->\n\t</mbr-parameters>\n\t<!-- <div class=\"menu-wrapper\"> -->\n\t<nav class=\"navbar navbar-dropdown navbar-expand-lg\" mbr-class=\"{'navbar-fixed-top': sticky}\">\n\t\t<div class=\"menu-container\" mbr-class=\"{'container': !fullWidth,\n\t\t\t\t\t\t'container-fluid': fullWidth,\n\t\t\t\t\t\t'mbr-jc-e': !showLogo &amp;&amp; !showBrand}\">\n\t\t\t<!-- SHOW LOGO -->\n\t\t\t<div class=\"navbar-brand\" mbr-if=\"showLogo || showBrand\">\n\t\t\t\t<div mbr-if=\"showLogo\" class=\"navbar-logo\">\n\t\t\t\t\t<amp-img src=\"@PROJECT_PATH@/assets/images/logo1.png\" layout=\"responsive\" width=\"50\" height=\"50\" alt=\"Mobirise\" class=\"mobirise-loader\">\n\t\t\t\t\t\t<div placeholder=\"\">\n\t\t\t\t\t\t\t<div class=\"mobirise-spinner\">\n\t\t\t\t\t\t\t\t<em></em>\n\t\t\t\t\t\t\t\t<em></em>\n\t\t\t\t\t\t\t\t<em></em>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/logo1.png\" alt=\"Mobirise\">\n\t\t\t\t\t</amp-img>\n\t\t\t\t</div>\n\t\t\t\t<span mbr-if=\"showBrand\" mbr-buttons=\"\" mbr-theme-style=\"display-7\" class=\"navbar-caption-wrap\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove\" mbr-link-type=\"name\">\n\t\t\t\t\t<a class=\"navbar-caption mbr-bold text-black\" data-app-selector=\".navbar-caption\" href=\"https://mobirise.com\">BeautyAMP</a>\n\t\t\t\t</span>\n\t\t\t</div>\n\t\t\t<!-- SHOW LOGO END -->\n\t\t\t<!-- COLLAPSED MENU -->\n\t\t\t<div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n\t\t\t\t<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\" mbr-if=\"showItems || showSocial || showButtons\">\n\t\t\t\t<div class=\"hamburger\">\n\t\t\t\t\t<span></span>\n\t\t\t\t\t<span></span>\n\t\t\t\t\t<span></span>\n\t\t\t\t\t<span></span>\n\t\t\t\t</div>\n\t\t\t\t</button>\n\t\t\t\t<!-- NAVBAR ITEMS -->\n\t\t\t\t<ul mbr-menu=\"\" class=\"navbar-nav nav-dropdown\" mbr-theme-style=\"display-7\" mbr-if=\"showItems\" mbr-class=\"{'nav-right': !showButtons,'navbar-nav-top-padding': isPublish &amp;&amp; !showBrand &amp;&amp; !showLogo}\">\n\t\t\t\t\t<li class=\"nav-item dropdown open\">\n\t\t\t\t\t\t<a class=\"nav-link link mbr-bold text-black dropdown-toggle\" href=\"https://mobirise.com\" data-app-selector=\".nav-link,.dropdown-item\" data-toggle=\"dropdown-submenu\" aria-expanded=\"true\">\n\t\t\t\t\t\t\tServices\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<div class=\"dropdown-menu\">\n\t\t\t\t\t\t\t<a class=\"text-black mbr-bold dropdown-item\" href=\"https://mobirise.com\" data-app-selector=\".nav-link,.dropdown-item\">New Item</a>\n\t\t\t\t\t\t\t<a class=\"text-black mbr-bold dropdown-item\" href=\"https://mobirise.com\" data-app-selector=\".nav-link,.dropdown-item\">New Item</a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li class=\"nav-item\">\n\t\t\t\t\t\t<a class=\"nav-link mbr-bold link text-black\" href=\"https://mobirise.com\" data-app-selector=\".nav-link,.dropdown-item\">\n\t\t\t\t\t\t\tHome\n\t\t\t\t\t\t</a>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li class=\"nav-item\">\n\t\t\t\t\t\t<a class=\"nav-link mbr-bold link text-black\" href=\"https://mobirise.com\" data-app-selector=\".nav-link,.dropdown-item\">\n\t\t\t\t\t\t\tAbout us\n\t\t\t\t\t\t</a>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li class=\"nav-item\">\n\t\t\t\t\t\t<a class=\"nav-link mbr-bold link text-black\" href=\"https://mobirise.com\" data-app-selector=\".nav-link,.dropdown-item\">\n\t\t\t\t\t\t\tFAQ\n\t\t\t\t\t\t</a>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t\t<!-- NAVBAR ITEMS END -->\n\t\t\t\t<!-- SOCIAL ICON -->\n\t\t\t\t<div class=\"menu-social-list\" mbr-if=\"showSocial\" mbr-list=\"\" mbr-list-grow=\"iconsCount\" mbr-link-type=\"socials\">\n\t\t\t\t\t<a href=\"http://www.youtube.com/channel/UCt_tncVAetpK5JeM8L-8jyw\" target=\"_blank\">\n\t\t\t\t\t\t<span mbr-icon=\"\" class=\"amp-iconfont fa-youtube fa\"></span>\n\t\t\t\t\t</a>\n\t\t\t\t\t<a href=\"https://www.facebook.com/pages/Mobirise/1616226671953247\" target=\"_blank\">\n\t\t\t\t\t\t<span mbr-icon=\"\" class=\"amp-iconfont fa-facebook-square fa\"></span>\n\t\t\t\t\t</a>\n\t\t\t\t\t<a href=\"https://plus.google.com/u/0/+Mobirise/posts\" target=\"_blank\">\n\t\t\t\t\t\t<span mbr-icon=\"\" class=\"amp-iconfont fa-google-plus-circle fa\"></span>\n\t\t\t\t\t</a>\n\t\t\t\t</div>\n\t\t\t\t<!-- SOCIAL ICON END -->\n\t\t\t\t<!-- SHOW BUTTON -->\n\t\t\t\t<div mbr-if=\"showButtons\" mbr-buttons=\"\" mbr-theme-style=\"display-7\" class=\"navbar-buttons mbr-section-btn\">\n\t\t\t\t\t<a class=\"btn btn-md btn-black mbr-bold\" href=\"https://mobirise.com\">\n\t\t\t\t\t\tBook Now\n\t\t\t\t\t</a>\n\t\t\t\t</div>\n\t\t\t\t<!-- SHOW BUTTON END -->\n\t\t\t</div>\n\t\t\t<!-- COLLAPSED MENU END -->\n\t\t\t<button class=\"navbar-toggler hide\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\" mbr-if=\"showItems || showSocial || showButtons\">\n\t\t\t<div class=\"hamburger\">\n\t\t\t\t<span></span>\n\t\t\t\t<span></span>\n\t\t\t\t<span></span>\n\t\t\t\t<span></span>\n\t\t\t</div>\n\t\t\t</button>\n\t\t\t<button on=\"tap:sidebar.toggle\" class=\"ampstart-btn hamburger\" mbr-if=\"(showItems||showButtons)\">\n\t\t\t\t<span></span>\n\t\t\t\t<span></span>\n\t\t\t\t<span></span>\n\t\t\t\t<span></span>\n\t\t\t</button>\n\t\t</div>\n\t</nav>\n\t<!-- AMP plug -->\n\t<amp-sidebar id=\"sidebar\" layout=\"nodisplay\" side=\"{{sidebarSide}}\">\n\t\t<div class=\"builder-sidebar\" id=\"builder-sidebar\">\n\t\t\t<button on=\"tap:sidebar.close\" class=\"close-sidebar\">\n\t\t\t<span></span>\n\t\t\t<span></span>\n\t\t\t</button>\n\t\t</div>\n\t</amp-sidebar>\n\t<!-- </div> -->\n</section>",
+          "_cid": "qYTOKZn26p",
+          "_anchor": "menu1-f",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [],
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "menu",
+          "_params": {}
+        }
+      ]
+    }
+  }
+}
